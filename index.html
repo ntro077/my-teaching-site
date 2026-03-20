@@ -3,113 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Teacher Rush | Expert English Coaching</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Rush | Professional English Instructor & Consultant</title>
     <style>
         :root {
             --primary-blue: #1A365D; 
-            --accent-yellow: #FFD700;
-            --white: #FFFFFF;
-            --text-dark: #1A202C;
-            --whatsapp-green: #25D366;
-            --insta-pink: #E1306C;
+            --accent-yellow: #FFD700; 
+            --light-bg: #FFFFFF;
+            --text-dark: #333333;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text-dark); background-color: var(--white); scroll-behavior: smooth; }
-        
-        /* Hero Section */
-        header { 
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #2A4365 100%); 
-            color: var(--white); 
-            padding: 100px 20px; 
-            text-align: center; 
-            border-bottom: 5px solid var(--accent-yellow);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        h1 { font-size: 3rem; margin: 0; letter-spacing: -1px; }
-        .tagline { font-size: 1.25rem; color: var(--accent-yellow); margin: 20px 0 45px; font-weight: 400; }
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .tagline { font-size: 1.2rem; color: var(--accent-yellow); margin-bottom: 20px; }
+
+        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
         
-        /* The Triple Button Container */
-        .cta-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap; 
-            max-width: 1000px;
-            margin: 0 auto;
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+        .card { border: 1px solid #eee; padding: 20px; border-radius: 8px; background: #fff; }
+        .card h3 { color: var(--primary-blue); margin-top: 0; }
+
+        .contact-box {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-top: 5px solid var(--accent-yellow);
+            margin-top: 40px;
         }
 
         .btn {
-            padding: 16px 28px;
-            border-radius: 12px;
-            font-weight: bold;
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 15px 30px;
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: bold;
+            border-radius: 5px;
             display: inline-block;
-            min-width: 180px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* Button Branding */
-        .btn-preply { background: var(--accent-yellow); color: var(--primary-blue); border: 2px solid var(--accent-yellow); }
-        .btn-whatsapp { background: var(--whatsapp-green); color: white; border: 2px solid var(--whatsapp-green); }
-        .btn-insta { background: transparent; color: white; border: 2px solid white; }
-
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); opacity: 0.95; }
-
-        /* Content Area */
-        .container { max-width: 850px; margin: auto; padding: 80px 20px; text-align: center; }
-        h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--primary-blue); }
-        .about-text { line-height: 1.8; font-size: 1.15rem; color: #4A5568; margin-bottom: 40px; }
-
-        /* Secondary Socials */
-        .other-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .other-links a { color: var(--primary-blue); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--accent-yellow); padding-bottom: 2px; transition: 0.2s; }
-        .other-links a:hover { color: #2C5282; border-bottom-color: var(--primary-blue); }
-
-        footer { padding: 60px 20px; color: #A0AEC0; font-size: 0.85rem; border-top: 1px solid #EDF2F7; margin-top: 60px; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .btn { width: 100%; }
+            border: none;
+            width: 100%;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>English Teacher Rush</h1>
-        <p class="tagline">Expert English Coaching for Professionals & Students in Brazil</p>
-        
-        <div class="cta-container">
-            <a href="https://preply.in/RUSHIDUL6EN1914097910?ts=17740161" target="_blank" class="btn btn-preply">BOOK ON PREPLY</a>
-            
-            <a href="https://wa.me/19983913311" target="_blank" class="btn btn-whatsapp">CHAT ON WHATSAPP</a>
-            
-            <a href="https://www.instagram.com/englishteacherrush" target="_blank" class="btn btn-insta">DM ON INSTAGRAM</a>
-        </div>
+        <h1>Sk Rushidul Amin</h1>
+        <p class="tagline">English Instructor | Marketing & Hospitality Specialist</p>
+        <p>Valinhos, SP, Brazil</p>
     </header>
 
     <div class="container">
-        <h2>Unlock Your Potential</h2>
-        <p class="about-text">
-            I am a graduate of Curtin University with a degree in Tourism, Hospitality, and Marketing. With over <strong>four years of experience</strong> teaching students across Brazil, I help you bridge the gap from intermediate (A2) to professional fluency. My lessons are tailored to your career goals, helping you communicate with confidence on a global stage.
-        </p>
+        <section>
+            <h2>Expertise & Methodology</h2>
+            <p>With a <strong>Bachelor of Tourism, Hospitality & Marketing</strong> from Curtin University, I bring a unique business perspective to language learning. I specialize in transforming student abilities through interactive, meticulously planned lessons[cite: 7, 8].</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>English Instruction</h3>
+                    <p>Over 4 years of experience guiding hundreds of students toward fluency[cite: 5, 6]. I specialize in conversation skills and interview preparation[cite: 5, 7].</p>
+                </div>
+                <div class="card">
+                    <h3>Business & Marketing</h3>
+                    <p>Expertise in digital marketing, content development, and social media management for businesses[cite: 9, 13].</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="other-links">
-            <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank">YOUTUBE</a>
-            <a href="https://www.tiktok.com/@aminskrushidul" target="_blank">TIKTOK</a>
-        </div>
+        <section class="contact-box">
+            <h2>Work with Me</h2>
+            <p>Ready to achieve your language goals? Send a message directly to <strong>Ntro077@gmail.com</strong>.</p>
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin:10px 0;">
+                <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin:10px 0;">
+                <textarea name="message" rows="4" placeholder="How can I help you?" required style="width:100%; padding:10px; margin:10px 0;"></textarea>
+                <button type="submit" class="btn">SEND INQUIRY</button>
+            </form>
+        </section>
     </div>
-
-    <center>
-        <footer>
-            &copy; 2026 English Teacher Rush | Professional English Educator<br>
-            Helping you master English, one lesson at a time.
-        </footer>
-    </center>
 
 </body>
 </html>
