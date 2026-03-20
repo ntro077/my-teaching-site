@@ -4,24 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Teacher Rush | Master Your Fluency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --text-main: #1e293b;
-            --primary-blue: #1d4ed8;
-            --accent-yellow: #fbbf24;
-            --youtube: #FF0000;
-            --tiktok: #000000;
-        }
-
-        [data-theme="dark"] {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --card-bg: rgba(30, 41, 59, 0.8);
-            --text-main: #f1f5f9;
+            --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #0f172a;
+            --primary-blue: #2563eb;
+            --yt-red: #ff0000;
+            --tt-black: #000000;
         }
 
         body {
@@ -32,235 +25,187 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            transition: 0.5s;
             min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Top Header with Socials & Lang */
-        .header-nav {
+        /* Top Bar Fix */
+        .top-bar {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
+            margin-bottom: 30px;
         }
 
-        .social-corner {
+        .social-links {
             display: flex;
             gap: 15px;
-            align-items: center;
         }
 
-        .social-icon {
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .social-icon.yt { color: var(--youtube); }
-        .social-icon.tt { color: var(--text-main); }
-        .social-icon:hover { transform: scale(1.2); }
-
-        .lang-pills {
+        .social-pill {
             display: flex;
-            background: var(--card-bg);
-            padding: 5px;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
             border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0,0,0,0.05);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .lang-btn {
+        .pill-yt { background: var(--yt-red); }
+        .pill-tt { background: var(--tt-black); }
+        .social-pill:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        .lang-switcher {
+            display: flex;
+            background: white;
+            padding: 4px;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .l-btn {
             border: none;
-            background: transparent;
-            color: var(--text-main);
-            padding: 8px 15px;
+            background: none;
+            padding: 8px 14px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
             font-size: 0.75rem;
         }
-        .lang-btn.active { background: var(--primary-blue); color: white; }
+        .l-btn.active { background: var(--primary-blue); color: white; }
 
-        /* Animated Title */
-        .brand-name {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+        /* Branding Section */
+        .hero { text-align: center; margin-bottom: 40px; }
+        .brand-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 800;
-            text-align: center;
-            background: linear-gradient(to right, #1d4ed8, #6366f1);
+            margin: 0;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: bounceInDown 1.2s;
-            margin-top: 40px;
-            margin-bottom: 10px;
+            animation: fadeInDown 1s;
         }
 
         /* Main Glass Card */
-        .main-card {
+        .content-card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 35px;
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
             padding: 40px;
             max-width: 550px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 40px;
-            animation: fadeInUp 1s;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.2);
+            animation: zoomIn 0.8s;
         }
 
-        .bio-text { font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px; }
+        .bio { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; color: #334155; }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 20px;
+        .cta-btn {
+            display: block;
+            padding: 18px;
             border-radius: 20px;
             text-decoration: none;
             font-weight: 800;
             color: white;
-            margin-bottom: 15px;
-            transition: 0.4s;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            background: #22c55e;
+            transition: 0.3s;
         }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .wa { background: #25D366; }
-        .preply { background: #00afef; }
+        .cta-btn:hover { transform: scale(1.02); }
 
-        /* Success Stories - Vertical Scroll */
-        .reviews-section {
+        /* Success Stories */
+        .reviews-wrap {
             width: 100%;
             max-width: 550px;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
-        .reviews-container {
-            height: 400px;
+        .reviews-scroll {
+            height: 300px;
             overflow-y: auto;
-            padding-right: 10px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-blue) transparent;
         }
 
-        .review-card {
-            background: var(--card-bg);
+        .rev-card {
+            background: white;
             padding: 20px;
             border-radius: 20px;
-            border-left: 5px solid var(--accent-yellow);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            animation: fadeInRight 0.5s;
-        }
-
-        .theme-toggle {
-            background: var(--card-bg);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            margin-left: 10px;
+            border-left: 6px solid #fbbf24;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
     </style>
 </head>
-<body data-theme="light">
+<body>
 
-    <div class="header-nav">
-        <div class="lang-pills">
-            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
-            <button class="lang-btn" onclick="setLang('pt', this)">PT</button>
-            <button class="lang-btn" onclick="setLang('es', this)">ES</button>
-            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    <div class="top-bar">
+        <div class="lang-switcher">
+            <button class="l-btn active" onclick="setL('en', this)">EN</button>
+            <button class="l-btn" onclick="setL('pt', this)">PT</button>
+            <button class="l-btn" onclick="setL('es', this)">ES</button>
         </div>
 
-        <div class="social-corner">
-            <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank" class="social-icon yt">
-                <i class="fab fa-youtube"></i>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank" class="social-pill pill-yt">
+                <i class="fab fa-youtube"></i> YouTube
             </a>
-            <a href="https://www.tiktok.com/@englishteacherrush" target="_blank" class="social-icon tt">
-                <i class="fab fa-tiktok"></i>
+            <a href="https://www.tiktok.com/@englishteacherrush" target="_blank" class="social-pill pill-tt">
+                <i class="fab fa-tiktok"></i> TikTok
             </a>
         </div>
     </div>
 
-    <h1 class="brand-name">English Teacher Rush</h1>
+    <div class="hero">
+        <h1 class="brand-title">English Teacher Rush</h1>
+    </div>
 
-    <div class="main-card">
-        <p id="bio" class="bio-text">
-            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a high-value professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
+    <div class="content-card">
+        <p id="bio-text" class="bio">
+            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a high-value professional asset. Join hundreds of students who have mastered fluency through my interactive methodology.
         </p>
-
-        <a href="https://wa.me/5519984270311" class="btn wa">
-            <i class="fab fa-whatsapp fa-lg"></i> <span id="btn-wa">Start Your Journey</span>
+        <a href="https://wa.me/5519984270311" class="cta-btn">
+            <i class="fab fa-whatsapp"></i> <span id="wa-t">Start Your Journey</span>
         </a>
-        <a href="YOUR_PREPLY_LINK" class="btn preply">
-            <i class="fas fa-star"></i> <span id="btn-preply">Book on Preply</span>
-        </a>
+    </div>
 
-        <div style="margin-top: 20px; font-weight: 700; color: var(--primary-blue);">
-            <i class="fas fa-check-circle"></i> 48+ Five-Star Success Stories
+    <div class="reviews-wrap">
+        <h2 id="rev-h" style="text-align: center;">Success Stories (48+)</h2>
+        <div class="reviews-scroll">
+            <div class="rev-card">
+                <div style="color:#fbbf24">★★★★★</div>
+                "Passionate and professional. The best English teacher in Brazil!"
+            </div>
+            <div class="rev-card">
+                <div style="color:#fbbf24">★★★★★</div>
+                "The Curtin University background really shows in how professional the classes are."
+            </div>
         </div>
     </div>
-
-    <div class="reviews-section">
-        <h2 id="stories-title" style="text-align: center; margin-bottom: 20px;">Success Stories</h2>
-        <div class="reviews-container" id="review-list">
-            <div class="review-card">
-                <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
-                "Rush helped me feel so comfortable speaking English for my new job. His background makes lessons practical!"
-                <br><small><strong>- Business Student</strong></small>
-            </div>
-            <div class="review-card">
-                <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
-                "The interactive method actually works. I lost my fear of speaking in meetings."
-                <br><small><strong>- Private Student</strong></small>
-            </div>
-            </div>
-    </div>
-
-    <p style="opacity: 0.6; font-size: 0.8rem; margin: 40px 0;">© 2026 English Teacher Rush | Curtin University Alumnus</p>
 
     <script>
-        const translations = {
-            en: {
-                bio: "Unlock your potential with an instructor who understands the global stage. Leveraging a dual degree from Curtin University, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.",
-                wa: "Start Your Journey",
-                preply: "Book on Preply",
-                stories: "Success Stories"
-            },
-            pt: {
-                bio: "Desbloqueie seu potencial com um instrutor que entende o cenário global. Utilizando meu diploma da Curtin University, transformo o aprendizado de idiomas em um ativo profissional. Junte-se a centenas de alunos que dominaram a fluência através da minha metodologia interativa e de alto impacto.",
-                wa: "Comece Sua Jornada",
-                preply: "Agendar no Preply",
-                stories: "Histórias de Sucesso"
-            },
-            es: {
-                bio: "Libera tu potencial con un instructor que comprende el escenario global. Con un título de Curtin University, transformo el aprendizaje de idiomas en una ventaja profesional. Únete a cientos de estudiantes que han alcanzado la fluidez con mi metodología interactiva de alto impacto.",
-                wa: "Inicia Tu Viaje",
-                preply: "Reservar en Preply",
-                stories: "Historias de Éxito"
-            }
+        const data = {
+            en: { bio: "Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a high-value professional asset. Join hundreds of students who have mastered fluency through my interactive methodology.", wa: "Start Your Journey", rev: "Success Stories (48+)" },
+            pt: { bio: "Desbloqueie seu potencial com um instrutor que entende o cenário global. Com um <strong>diploma da Curtin University</strong>, transformo o aprendizado de inglês em um ativo profissional de alto valor. Junte-se a centenas de alunos que dominaram a fluência.", wa: "Comece Sua Jornada", rev: "Histórias de Sucesso (48+)" },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con un <strong>título de Curtin University</strong>, transformo el aprendizaje de idiomas en una ventaja profesional. Únete a cientos de estudiantes que han alcanzado la fluidez.", wa: "Inicia Tu Viaje", rev: "Historias de Éxito (48+)" }
         };
 
-        function setLang(lang, btn) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('bio').innerHTML = translations[lang].bio.replace("dual degree from Curtin University", "<strong>dual degree from Curtin University</strong>");
-            document.getElementById('btn-wa').innerText = translations[lang].wa;
-            document.getElementById('btn-preply').innerText = translations[lang].preply;
-            document.getElementById('stories-title').innerText = translations[lang].stories;
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const isDark = body.getAttribute('data-theme') === 'dark';
-            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            document.querySelector('.theme-toggle i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+        function setL(l, b) {
+            document.querySelectorAll('.l-btn').forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            document.getElementById('bio-text').innerHTML = data[l].bio;
+            document.getElementById('wa-t').innerText = data[l].wa;
+            document.getElementById('rev-h').innerText = data[l].rev;
         }
     </script>
 </body>
