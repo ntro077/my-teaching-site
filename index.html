@@ -3,44 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Teacher Rush | Master Your Fluency</title>
+    <title>English Teacher Rush | Expert English Coach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1A365D;
+            --primary-blue: #1A365D; 
             --accent-yellow: #FFD700;
-            --light-bg: #FFFFFF;
-            --text-dark: #333333;
+            --white: #FFFFFF;
+            --text-dark: #1A202C;
+            --whatsapp-green: #25D366;
         }
-        body { font-family: sans-serif; margin: 0; color: var(--text-dark); line-height: 1.6; }
-        header { background-color: var(--primary-blue); color: white; padding: 60px 20px; text-align: center; }
-        .tagline { font-size: 1.2rem; color: var(--accent-yellow); margin-bottom: 25px; }
-        .cta-button { background-color: var(--accent-yellow); color: var(--primary-blue); padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; }
-        .container { max-width: 800px; margin: auto; padding: 40px 20px; }
-        .contact-box { background-color: #f4f4f4; padding: 30px; border-radius: 8px; margin-top: 30px; }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .submit-btn { background-color: var(--primary-blue); color: white; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text-dark); background-color: var(--white); scroll-behavior: smooth; }
+        
+        /* Main Header Section */
+        header { 
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2A4365 100%); 
+            color: var(--white); 
+            padding: 80px 20px; 
+            text-align: center; 
+        }
+
+        h1 { font-size: 2.8rem; margin: 0; }
+        .tagline { font-size: 1.2rem; color: var(--accent-yellow); margin: 15px 0 40px; }
+        
+        /* The Three Main Buttons Side-by-Side */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap; /* Keeps it looking good on mobile */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 160px;
+            text-align: center;
+        }
+
+        /* Specific Button Colors */
+        .btn-preply { background: var(--accent-yellow); color: var(--primary-blue); border: 2px solid var(--accent-yellow); }
+        .btn-whatsapp { background: var(--whatsapp-green); color: white; border: 2px solid var(--whatsapp-green); }
+        .btn-insta { background: transparent; color: white; border: 2px solid white; }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); opacity: 0.9; }
+
+        /* General Content Styling */
+        .container { max-width: 800px; margin: auto; padding: 60px 20px; text-align: center; }
+        .about-text { line-height: 1.8; font-size: 1.1rem; color: #4A5568; }
+
+        /* Secondary Social Section */
+        .social-links { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a { color: var(--primary-blue); text-decoration: none; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--accent-yellow); }
+
+        footer { padding: 40px; color: #A0AEC0; font-size: 0.8rem; }
     </style>
 </head>
 <body>
+
     <header>
         <h1>English Teacher Rush</h1>
-        <p class="tagline">4+ Years Experience | Specializing in Brazilian Learners</p>
-        <a href="https://preply.com" class="cta-button">BOOK A TRIAL ON PREPLY</a>
-    </header>
-    <div class="container">
-        <section>
-            <h2>About Me</h2>
-            <p>I’m Rush, a Curtin University graduate helping students move from A2 to fluency. Whether it's business English or conversational skills, my lessons are tailored for your success.</p>
-        </section>
-        <section class="contact-box">
-            <h3>Have a Question? Let's Connect!</h3>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
-                <button type="submit" class="submit-btn">SEND MESSAGE</button>
-            </form>
-        </section>
-    </div>
-</body>
-</html>
+        <p class="tagline">Over 4 Years Experience Helping Students in Brazil Reach Fluency</p>
