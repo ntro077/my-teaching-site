@@ -14,12 +14,15 @@
             --text-main: #1e293b;
             --primary-blue: #1d4ed8;
             --accent-yellow: #fbbf24;
+            --tiktok: #000000;
+            --youtube: #FF0000;
         }
 
         [data-theme="dark"] {
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --card-bg: rgba(30, 41, 59, 0.8);
             --text-main: #f1f5f9;
+            --tiktok: #ffffff;
         }
 
         body {
@@ -31,19 +34,16 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            overflow-x: hidden;
             transition: 0.5s;
         }
 
-        /* Language & Theme Header */
         .top-nav {
             width: 100%;
             max-width: 600px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
+            margin: 20px 0;
         }
 
         .lang-pills {
@@ -64,24 +64,21 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 0.75rem;
-            transition: 0.3s;
         }
 
         .lang-btn.active { background: var(--primary-blue); color: white; }
 
-        /* Animated Header */
         .brand-name {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
             font-weight: 800;
             text-align: center;
-            margin-bottom: 5px;
             background: linear-gradient(to right, #1d4ed8, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInDown 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: fadeInDown 1s;
+            margin-bottom: 20px;
         }
 
-        /* Main Card */
         .main-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -91,52 +88,77 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
             animation: zoomIn 0.8s;
-            margin-bottom: 40px;
         }
 
         .bio-text { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
 
-        /* Buttons */
+        .action-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 18px;
-            border-radius: 20px;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 15px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 700;
             color: white;
-            margin-bottom: 15px;
-            transition: 0.4s;
+            transition: 0.3s;
+            font-size: 0.9rem;
         }
-        .btn:hover { transform: translateY(-5px); filter: brightness(1.1); }
-        .wa { background: #25D366; }
+        .btn:hover { transform: translateY(-3px); }
+        .wa { background: #25D366; grid-column: span 2; padding: 20px; font-size: 1.1rem; }
         .preply { background: #00afef; }
+        .yt-btn { background: var(--youtube); }
+        .tt-btn { background: var(--tiktok); color: var(--bg-body); }
+        [data-theme="dark"] .tt-btn { color: #000; }
 
-        /* Marquee Styles */
-        .marquee-wrapper { width: 100vw; margin: 20px 0; }
-        .marquee { display: flex; overflow: hidden; user-select: none; gap: 20px; }
-        .marquee-content {
-            display: flex;
-            flex-shrink: 0;
-            gap: 20px;
-            min-width: 100%;
-            animation: scroll-left 60s linear infinite;
+        /* Video Section */
+        .video-card {
+            width: 100%;
+            max-width: 550px;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .marquee-reverse .marquee-content { animation: scroll-right 60s linear infinite; }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-        @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-        @keyframes scroll-right { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-
-        .review-pill {
+        /* Success Stories Scroll */
+        .stories-header { margin: 20px 0; font-weight: 800; }
+        .reviews-scroll {
+            width: 100%;
+            max-width: 550px;
+            height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 10px;
+        }
+        .review-card {
             background: var(--card-bg);
             padding: 20px;
             border-radius: 20px;
-            min-width: 280px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
+            border-left: 5px solid var(--accent-yellow);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         .theme-toggle {
@@ -146,7 +168,6 @@
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -168,78 +189,86 @@
             Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
         </p>
 
-        <a href="https://wa.me/5519984270311" class="btn wa">
-            <i class="fab fa-whatsapp"></i> <span id="btn-wa">Start Your Journey</span>
-        </a>
-        <a href="YOUR_PREPLY_LINK" class="btn preply">
-            <i class="fas fa-star"></i> <span id="btn-preply">Book on Preply</span>
-        </a>
-
-        <div style="margin-top: 20px; font-weight: 700; color: var(--primary-blue);">
-            <i class="fas fa-check-circle"></i> 48+ Five-Star Success Stories
+        <div class="action-list">
+            <a href="https://wa.me/5519984270311" class="btn wa">
+                <i class="fab fa-whatsapp"></i> <span id="btn-wa">Start Your Journey</span>
+            </a>
+            <a href="https://preply.com/en/tutor/YOUR_ID" class="btn preply">
+                <i class="fas fa-graduation-cap"></i> <span id="btn-preply">Preply</span>
+            </a>
+            <a href="https://www.youtube.com/@EnglishTeacherRush" class="btn yt-btn">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="https://www.tiktok.com/@englishteacherrush" class="btn tt-btn">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+            <a href="https://www.instagram.com/englishteacherrush" class="btn" style="background: #E1306C;">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
         </div>
     </div>
 
-    <h2 id="stories-title" style="text-align: center; margin-bottom: 30px;">Success Stories</h2>
-
-    <div class="marquee-wrapper">
-        <div class="marquee">
-            <div class="marquee-content" id="reviews-row-1">
-                </div>
+    <div class="video-card">
+        <h3 id="vid-head" style="margin-top:0;"><i class="fas fa-play-circle"></i> Featured Lesson</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+
+    <h2 class="stories-header" id="stories-title">Success Stories (48+)</h2>
+    <div class="reviews-scroll">
+        <div class="review-card">
+            <div style="color:var(--accent-yellow)">★★★★★</div>
+            "His dual degree background makes the lessons so practical for business English. Best teacher in Brazil!"
+            <br><small><strong>- Business Executive, São Paulo</strong></small>
+        </div>
+        <div class="review-card">
+            <div style="color:var(--accent-yellow)">★★★★★</div>
+            "Passionate, professional, and very helpful. I passed my interview thanks to Rush!"
+            <br><small><strong>- Student from Campinas</strong></small>
+        </div>
+        <div class="review-card">
+            <div style="color:var(--accent-yellow)">★★★★★</div>
+            "Interactive method that actually works. I finally lost my fear of speaking."
+            <br><small><strong>- Private Student</strong></small>
+        </div>
+    </div>
+
+    <p style="opacity: 0.6; font-size: 0.8rem; margin: 40px 0;">© 2026 English Teacher Rush | Curtin University Alumnus</p>
 
     <script>
         const translations = {
             en: {
                 bio: "Unlock your potential with an instructor who understands the global stage. Leveraging a dual degree from Curtin University, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.",
                 wa: "Start Your Journey",
-                preply: "Book on Preply",
-                stories: "Success Stories"
+                preply: "Preply",
+                stories: "Success Stories (48+)",
+                vid: "Featured Lesson"
             },
             pt: {
                 bio: "Desbloqueie seu potencial com um instrutor que entende o cenário global. Utilizando meu diploma da Curtin University, transformo o aprendizado de idiomas em um ativo profissional. Junte-se a centenas de alunos que dominaram a fluência através da minha metodologia interativa e de alto impacto.",
                 wa: "Comece Sua Jornada",
-                preply: "Agendar no Preply",
-                stories: "Histórias de Sucesso"
+                preply: "Agendar Aula",
+                stories: "Histórias de Sucesso (48+)",
+                vid: "Aula em Destaque"
             },
             es: {
                 bio: "Libera tu potencial con un instructor que comprende el escenario global. Con un título de Curtin University, transformo el aprendizaje de idiomas en una ventaja profesional. Únete a cientos de estudiantes que han alcanzado la fluidez con mi metodología interactiva de alto impacto.",
                 wa: "Inicia Tu Viaje",
-                preply: "Reservar en Preply",
-                stories: "Historias de Éxito"
+                preply: "Reservar Aula",
+                stories: "Historias de Éxito (48+)",
+                vid: "Lección Destacada"
             }
         };
-
-        const reviews = [
-            "\"Rush is amazing! His lessons are practical and very professional.\"",
-            "\"I feel much more confident in business meetings now.\"",
-            "\"4 years of teaching experience really shows. Excellent method!\"",
-            "\"The best choice for learning English in Brazil.\"",
-            "\"Focused, interactive, and truly effective classes.\"",
-            "\"Helped me pass my job interview with ease!\""
-        ];
-
-        function populateReviews() {
-            const row = document.getElementById('reviews-row-1');
-            let html = "";
-            // Duplicate reviews to create a smooth loop
-            [...reviews, ...reviews, ...reviews].forEach(text => {
-                html += `<div class="review-pill">
-                            <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
-                            ${text}
-                         </div>`;
-            });
-            row.innerHTML = html;
-        }
 
         function setLang(lang, btn) {
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            document.getElementById('bio').innerHTML = translations[lang].bio.replace("Dual Degree from Curtin University", "<strong>Dual Degree from Curtin University</strong>");
+            document.getElementById('bio').innerHTML = translations[lang].bio.replace("dual degree from Curtin University", "<strong>dual degree from Curtin University</strong>");
             document.getElementById('btn-wa').innerText = translations[lang].wa;
             document.getElementById('btn-preply').innerText = translations[lang].preply;
             document.getElementById('stories-title').innerText = translations[lang].stories;
+            document.getElementById('vid-head').innerHTML = `<i class="fas fa-play-circle"></i> ${translations[lang].vid}`;
         }
 
         function toggleTheme() {
@@ -248,8 +277,6 @@
             body.setAttribute('data-theme', isDark ? 'light' : 'dark');
             document.querySelector('.theme-toggle i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
         }
-
-        populateReviews();
     </script>
 </body>
 </html>
