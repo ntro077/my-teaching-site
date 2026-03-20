@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Teacher Rush | Expert English Coach</title>
+    <title>English Teacher Rush | Expert English Coaching</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -12,63 +12,104 @@
             --white: #FFFFFF;
             --text-dark: #1A202C;
             --whatsapp-green: #25D366;
+            --insta-pink: #E1306C;
         }
 
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text-dark); background-color: var(--white); scroll-behavior: smooth; }
         
-        /* Main Header Section */
+        /* Hero Section */
         header { 
             background: linear-gradient(135deg, var(--primary-blue) 0%, #2A4365 100%); 
             color: var(--white); 
-            padding: 80px 20px; 
+            padding: 100px 20px; 
             text-align: center; 
+            border-bottom: 5px solid var(--accent-yellow);
         }
 
-        h1 { font-size: 2.8rem; margin: 0; }
-        .tagline { font-size: 1.2rem; color: var(--accent-yellow); margin: 15px 0 40px; }
+        h1 { font-size: 3rem; margin: 0; letter-spacing: -1px; }
+        .tagline { font-size: 1.25rem; color: var(--accent-yellow); margin: 20px 0 45px; font-weight: 400; }
         
-        /* The Three Main Buttons Side-by-Side */
+        /* The Triple Button Container */
         .cta-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap; /* Keeps it looking good on mobile */
-            max-width: 900px;
+            gap: 15px;
+            flex-wrap: wrap; 
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .btn {
-            padding: 14px 24px;
-            border-radius: 8px;
+            padding: 16px 28px;
+            border-radius: 12px;
             font-weight: bold;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
-            min-width: 160px;
+            min-width: 180px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* Specific Button Colors */
+        /* Button Branding */
         .btn-preply { background: var(--accent-yellow); color: var(--primary-blue); border: 2px solid var(--accent-yellow); }
         .btn-whatsapp { background: var(--whatsapp-green); color: white; border: 2px solid var(--whatsapp-green); }
         .btn-insta { background: transparent; color: white; border: 2px solid white; }
 
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); opacity: 0.9; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); opacity: 0.95; }
 
-        /* General Content Styling */
-        .container { max-width: 800px; margin: auto; padding: 60px 20px; text-align: center; }
-        .about-text { line-height: 1.8; font-size: 1.1rem; color: #4A5568; }
+        /* Content Area */
+        .container { max-width: 850px; margin: auto; padding: 80px 20px; text-align: center; }
+        h2 { font-size: 2.2rem; margin-bottom: 25px; color: var(--primary-blue); }
+        .about-text { line-height: 1.8; font-size: 1.15rem; color: #4A5568; margin-bottom: 40px; }
 
-        /* Secondary Social Section */
-        .social-links { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: var(--primary-blue); text-decoration: none; font-weight: bold; font-size: 0.9rem; border-bottom: 2px solid var(--accent-yellow); }
+        /* Secondary Socials */
+        .other-links { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        .other-links a { color: var(--primary-blue); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--accent-yellow); padding-bottom: 2px; transition: 0.2s; }
+        .other-links a:hover { color: #2C5282; border-bottom-color: var(--primary-blue); }
 
-        footer { padding: 40px; color: #A0AEC0; font-size: 0.8rem; }
+        footer { padding: 60px 20px; color: #A0AEC0; font-size: 0.85rem; border-top: 1px solid #EDF2F7; margin-top: 60px; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .btn { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>English Teacher Rush</h1>
-        <p class="tagline">Over 4 Years Experience Helping Students in Brazil Reach Fluency</p>
+        <p class="tagline">Expert English Coaching for Professionals & Students in Brazil</p>
+        
+        <div class="cta-container">
+            <a href="https://preply.in/RUSHIDUL6EN1914097910?ts=17740161" target="_blank" class="btn btn-preply">BOOK ON PREPLY</a>
+            
+            <a href="https://wa.me/19983913311" target="_blank" class="btn btn-whatsapp">CHAT ON WHATSAPP</a>
+            
+            <a href="https://www.instagram.com/englishteacherrush" target="_blank" class="btn btn-insta">DM ON INSTAGRAM</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Unlock Your Potential</h2>
+        <p class="about-text">
+            I am a graduate of Curtin University with a degree in Tourism, Hospitality, and Marketing. With over <strong>four years of experience</strong> teaching students across Brazil, I help you bridge the gap from intermediate (A2) to professional fluency. My lessons are tailored to your career goals, helping you communicate with confidence on a global stage.
+        </p>
+
+        <div class="other-links">
+            <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank">YOUTUBE</a>
+            <a href="https://www.tiktok.com/@aminskrushidul" target="_blank">TIKTOK</a>
+        </div>
+    </div>
+
+    <center>
+        <footer>
+            &copy; 2026 English Teacher Rush | Professional English Educator<br>
+            Helping you master English, one lesson at a time.
+        </footer>
+    </center>
+
+</body>
+</html>
