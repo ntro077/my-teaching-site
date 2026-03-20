@@ -9,58 +9,93 @@
     <style>
         :root {
             --primary: #1d4ed8;
-            --preply: #00afef;
+            --preply-pink: #ff007a;
             --yt: #FF0000;
             --tt: #000000;
             --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
             --gold: #fbbf24;
+            --border: #e2e8f0;
         }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; overflow-x: hidden; }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --border: #334155;
+            --tt: #ffffff;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text);
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden; 
+            transition: 0.3s ease;
+        }
         
-        /* Top Navigation */
         .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        
+        .controls-group { display: flex; align-items: center; gap: 10px; }
+
+        .lang-pills { display: flex; background: var(--card-bg); padding: 5px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .l-btn { border: none; background: none; padding: 8px 12px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.75rem; color: var(--text); }
+        .l-btn.active { background: var(--primary); color: white; }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--text);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .social-group { display: flex; gap: 10px; }
         .s-pill { text-decoration: none; color: white; padding: 8px 15px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
         .pill-yt { background: var(--yt); }
         .pill-tt { background: var(--tt); }
-        .s-pill:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        
-        .lang-pills { display: flex; background: white; padding: 5px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .l-btn { border: none; background: none; padding: 8px 12px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.75rem; }
-        .l-btn.active { background: var(--primary); color: white; }
+        [data-theme="dark"] .pill-tt { color: #000; }
 
-        /* Main Profile Card */
         .hero-section { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
         .brand-name { font-size: clamp(2.5rem, 8vw, 3.5rem); font-weight: 800; color: var(--primary); margin-bottom: 20px; }
-        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
-        .bio { font-size: 1.1rem; line-height: 1.8; color: #475569; margin-bottom: 30px; }
+        .card { background: var(--card-bg); padding: 40px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
+        .bio { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; }
         
-        /* Buttons */
         .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 15px; text-decoration: none; font-weight: 800; transition: 0.3s; margin-bottom: 12px; color: white; }
         .wa-btn { background: #22c55e; }
-        .preply-btn { background: var(--preply); }
-        .btn:hover { transform: scale(1.03); filter: brightness(1.05); }
+        .preply-btn { background: var(--preply-pink); }
 
-        /* SLIDING REVIEWS SECTION */
-        .marquee-container { width: 100%; overflow: hidden; background: white; padding: 40px 0; margin-top: 50px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .marquee-container { width: 100%; overflow: hidden; background: var(--card-bg); padding: 40px 0; margin-top: 50px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .marquee-content { display: flex; gap: 30px; animation: scroll 45s linear infinite; width: max-content; }
-        .review-box { background: var(--bg); padding: 25px; border-radius: 20px; min-width: 280px; border: 1px solid #e2e8f0; text-align: left; }
-        .stars { color: var(--gold); margin-bottom: 8px; font-size: 0.9rem; }
+        .review-box { background: var(--bg); padding: 25px; border-radius: 20px; min-width: 280px; border: 1px solid var(--border); text-align: left; }
+        .stars { color: var(--gold); margin-bottom: 8px; }
         
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
     <div class="top-nav">
-        <div class="lang-pills">
-            <button class="l-btn active" onclick="setL('en', this)">EN</button>
-            <button class="l-btn" onclick="setL('pt', this)">PT</button>
-            <button class="l-btn" onclick="setL('es', this)">ES</button>
+        <div class="controls-group">
+            <div class="lang-pills">
+                <button class="l-btn active" onclick="setL('en', this)">EN</button>
+                <button class="l-btn" onclick="setL('pt', this)">PT</button>
+                <button class="l-btn" onclick="setL('es', this)">ES</button>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
+
         <div class="social-group">
             <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank" class="s-pill pill-yt"><i class="fab fa-youtube"></i> YouTube</a>
             <a href="https://www.tiktok.com/@englishteacherrush" target="_blank" class="s-pill pill-tt"><i class="fab fa-tiktok"></i> TikTok</a>
@@ -87,8 +122,7 @@
     </div>
 
     <div class="marquee-container">
-        <div class="marquee-content" id="marquee">
-            </div>
+        <div class="marquee-content" id="marquee"></div>
     </div>
 
     <script>
@@ -105,17 +139,17 @@
             "Excellent method for business English.",
             "Passionate and very helpful teacher.",
             "Highly recommend for all levels!",
-            "Focused, interactive, and truly effective."
+            "Focused, interactive, and truly effective.",
+            "4+ years of teaching experience shows!"
         ];
 
         function initReviews() {
             const container = document.getElementById('marquee');
-            // Duplicate list twice to ensure seamless infinite scrolling
             const list = [...reviews, ...reviews, ...reviews, ...reviews];
             container.innerHTML = list.map(text => `
                 <div class="review-box">
                     <div class="stars">★★★★★</div>
-                    <div style="font-weight:600; color:#334155; line-height:1.4;">"${text}"</div>
+                    <div style="font-weight:600; line-height:1.4;">"${text}"</div>
                 </div>
             `).join('');
         }
@@ -126,6 +160,18 @@
             document.getElementById('bio').innerHTML = trans[l].bio;
             document.getElementById('wa-text').innerText = trans[l].wa;
             document.getElementById('preply-text').innerText = trans[l].preply;
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.theme-toggle i');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.className = 'fas fa-moon';
+            }
         }
 
         initReviews();
