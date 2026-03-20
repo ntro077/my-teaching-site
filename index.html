@@ -141,7 +141,6 @@
         <div class="card">
             <div class="flags-row">
                 <svg width="40" height="24" viewBox="0 0 60 30" style="border-radius:4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"><path d="M0 0h60v30H0z" fill="#012169"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>
-                
                 <svg width="40" height="24" viewBox="0 0 741 390" style="border-radius:4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"><path d="M0 0h741v390H0z" fill="#fff"/><path d="M0 0h741v30H0zm0 60h741v30H0zm0 60h741v30H0zm0 60h741v30H0zm0 60h741v30H0zm0 60h741v30H0zm0 60h741v30H0z" fill="#B22234"/><path d="M0 0h296.4v210H0z" fill="#3C3B6E"/><g fill="#fff"><g id="s18"><g id="s9"><g id="s5"><g id="s4"><path id="s1" d="M24.7 15l5.5 17h-14.4l11.7-8.5-11.7-8.5h14.4z" transform="scale(.6)"/><use xlink:href="#s1" x="82.3"/><use xlink:href="#s1" x="164.6"/><use xlink:href="#s1" x="246.9"/></g><use xlink:href="#s1" x="329.2"/></g><use xlink:href="#s4" y="42" x="41.1"/></g><use xlink:href="#s9" y="84"/></g><use xlink:href="#s18" y="126"/></g></svg>
             </div>
 
@@ -154,4 +153,55 @@
                 <span id="wa-t">Start Your Journey</span>
             </a>
             
-            <a href="https://preply.com/en/tutor/RUSHIDUL6EN1914097910" target
+            <a href="https://preply.com/en/tutor/RUSHIDUL6EN1914097910" target="_blank" class="btn pre">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.89 9L12 4.57 20.11 9 12 13.43 3.89 9zM12 17l-7-3.82V17l7 4 7-4v-3.82L12 17z"/></svg>
+                <span id="pre-t">Book on Preply</span>
+            </a>
+
+            <div class="success-badge" onclick="document.querySelector('.marquee').scrollIntoView({behavior:'smooth'})">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span id="success-t">Success Stories</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="marquee">
+        <div class="m-content" id="m-list"></div>
+    </div>
+
+    <script>
+        const trans = {
+            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", wa: "Start Your Journey", pre: "Book on Preply", success: "Success Stories" },
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", wa: "Comece sua Jornada", pre: "Agendar no Preply", success: "Casos de Sucesso" },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", wa: "Inicia tu Viaje", pre: "Reservar en Preply", success: "Historias de Éxito" }
+        };
+
+        const reviews = ["Best teacher in Brazil!", "Very professional and clear.", "Helped my career immensely.", "Passionate and methodical.", "Highly recommended!", "Great for Business English."];
+
+        function init() {
+            const el = document.getElementById('m-list');
+            const fullList = [...reviews, ...reviews, ...reviews, ...reviews];
+            el.innerHTML = fullList.map(t => `<div class="rev"><div class="stars">★★★★★</div><div style="font-weight:600;">"${t}"</div></div>`).join('');
+        }
+
+        function setL(l, b) {
+            document.querySelectorAll('.l-btn').forEach(btn => btn.classList.remove('active'));
+            b.classList.add('active');
+            document.getElementById('bio').innerHTML = trans[l].bio;
+            document.getElementById('wa-t').innerText = trans[l].wa;
+            document.getElementById('pre-t').innerText = trans[l].pre;
+            document.getElementById('success-t').innerText = trans[l].success;
+        }
+
+        function toggleT() {
+            const b = document.body;
+            const btn = document.getElementById('theme-icon');
+            const isDark = b.getAttribute('data-theme') === 'dark';
+            b.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            btn.innerText = isDark ? '🌙' : '☀️';
+        }
+
+        init();
+    </script>
+</body>
+</html>
