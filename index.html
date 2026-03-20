@@ -14,15 +14,14 @@
             --text-main: #1e293b;
             --primary-blue: #1d4ed8;
             --accent-yellow: #fbbf24;
-            --tiktok: #000000;
             --youtube: #FF0000;
+            --tiktok: #000000;
         }
 
         [data-theme="dark"] {
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --card-bg: rgba(30, 41, 59, 0.8);
             --text-main: #f1f5f9;
-            --tiktok: #ffffff;
         }
 
         body {
@@ -35,16 +34,33 @@
             align-items: center;
             padding: 20px;
             transition: 0.5s;
+            min-height: 100vh;
         }
 
-        .top-nav {
+        /* Top Header with Socials & Lang */
+        .header-nav {
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 20px 0;
+            padding: 20px 0;
         }
+
+        .social-corner {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icon.yt { color: var(--youtube); }
+        .social-icon.tt { color: var(--text-main); }
+        .social-icon:hover { transform: scale(1.2); }
 
         .lang-pills {
             display: flex;
@@ -65,20 +81,22 @@
             font-weight: 700;
             font-size: 0.75rem;
         }
-
         .lang-btn.active { background: var(--primary-blue); color: white; }
 
+        /* Animated Title */
         .brand-name {
-            font-size: clamp(2.2rem, 8vw, 3.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: 800;
             text-align: center;
             background: linear-gradient(to right, #1d4ed8, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInDown 1s;
-            margin-bottom: 20px;
+            animation: bounceInDown 1.2s;
+            margin-top: 40px;
+            margin-bottom: 10px;
         }
 
+        /* Main Glass Card */
         .main-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -88,77 +106,55 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 30px;
-            animation: zoomIn 0.8s;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s;
         }
 
-        .bio-text { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
+        .bio-text { font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px; }
 
-        .action-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 15px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            color: white;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-        .btn:hover { transform: translateY(-3px); }
-        .wa { background: #25D366; grid-column: span 2; padding: 20px; font-size: 1.1rem; }
-        .preply { background: #00afef; }
-        .yt-btn { background: var(--youtube); }
-        .tt-btn { background: var(--tiktok); color: var(--bg-body); }
-        [data-theme="dark"] .tt-btn { color: #000; }
-
-        /* Video Section */
-        .video-card {
-            width: 100%;
-            max-width: 550px;
-            background: var(--card-bg);
-            border-radius: 25px;
+            gap: 12px;
             padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            transition: 0.4s;
+            font-size: 1.1rem;
         }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .wa { background: #25D366; }
+        .preply { background: #00afef; }
 
-        /* Success Stories Scroll */
-        .stories-header { margin: 20px 0; font-weight: 800; }
-        .reviews-scroll {
+        /* Success Stories - Vertical Scroll */
+        .reviews-section {
             width: 100%;
             max-width: 550px;
-            height: 350px;
+            margin-top: 20px;
+        }
+
+        .reviews-container {
+            height: 400px;
             overflow-y: auto;
+            padding-right: 10px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            padding-right: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-blue) transparent;
         }
+
         .review-card {
             background: var(--card-bg);
             padding: 20px;
             border-radius: 20px;
             border-left: 5px solid var(--accent-yellow);
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            animation: fadeInRight 0.5s;
         }
 
         .theme-toggle {
@@ -168,70 +164,63 @@
             height: 45px;
             border-radius: 50%;
             cursor: pointer;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body data-theme="light">
 
-    <div class="top-nav">
+    <div class="header-nav">
         <div class="lang-pills">
             <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
             <button class="lang-btn" onclick="setLang('pt', this)">PT</button>
             <button class="lang-btn" onclick="setLang('es', this)">ES</button>
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+
+        <div class="social-corner">
+            <a href="https://www.youtube.com/@EnglishTeacherRush" target="_blank" class="social-icon yt">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@englishteacherrush" target="_blank" class="social-icon tt">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
     </div>
 
     <h1 class="brand-name">English Teacher Rush</h1>
 
     <div class="main-card">
         <p id="bio" class="bio-text">
-            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
+            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a high-value professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
         </p>
 
-        <div class="action-list">
-            <a href="https://wa.me/5519984270311" class="btn wa">
-                <i class="fab fa-whatsapp"></i> <span id="btn-wa">Start Your Journey</span>
-            </a>
-            <a href="https://preply.com/en/tutor/YOUR_ID" class="btn preply">
-                <i class="fas fa-graduation-cap"></i> <span id="btn-preply">Preply</span>
-            </a>
-            <a href="https://www.youtube.com/@EnglishTeacherRush" class="btn yt-btn">
-                <i class="fab fa-youtube"></i> YouTube
-            </a>
-            <a href="https://www.tiktok.com/@englishteacherrush" class="btn tt-btn">
-                <i class="fab fa-tiktok"></i> TikTok
-            </a>
-            <a href="https://www.instagram.com/englishteacherrush" class="btn" style="background: #E1306C;">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
+        <a href="https://wa.me/5519984270311" class="btn wa">
+            <i class="fab fa-whatsapp fa-lg"></i> <span id="btn-wa">Start Your Journey</span>
+        </a>
+        <a href="YOUR_PREPLY_LINK" class="btn preply">
+            <i class="fas fa-star"></i> <span id="btn-preply">Book on Preply</span>
+        </a>
+
+        <div style="margin-top: 20px; font-weight: 700; color: var(--primary-blue);">
+            <i class="fas fa-check-circle"></i> 48+ Five-Star Success Stories
         </div>
     </div>
 
-    <div class="video-card">
-        <h3 id="vid-head" style="margin-top:0;"><i class="fas fa-play-circle"></i> Featured Lesson</h3>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <h2 class="stories-header" id="stories-title">Success Stories (48+)</h2>
-    <div class="reviews-scroll">
-        <div class="review-card">
-            <div style="color:var(--accent-yellow)">★★★★★</div>
-            "His dual degree background makes the lessons so practical for business English. Best teacher in Brazil!"
-            <br><small><strong>- Business Executive, São Paulo</strong></small>
-        </div>
-        <div class="review-card">
-            <div style="color:var(--accent-yellow)">★★★★★</div>
-            "Passionate, professional, and very helpful. I passed my interview thanks to Rush!"
-            <br><small><strong>- Student from Campinas</strong></small>
-        </div>
-        <div class="review-card">
-            <div style="color:var(--accent-yellow)">★★★★★</div>
-            "Interactive method that actually works. I finally lost my fear of speaking."
-            <br><small><strong>- Private Student</strong></small>
-        </div>
+    <div class="reviews-section">
+        <h2 id="stories-title" style="text-align: center; margin-bottom: 20px;">Success Stories</h2>
+        <div class="reviews-container" id="review-list">
+            <div class="review-card">
+                <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
+                "Rush helped me feel so comfortable speaking English for my new job. His background makes lessons practical!"
+                <br><small><strong>- Business Student</strong></small>
+            </div>
+            <div class="review-card">
+                <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
+                "The interactive method actually works. I lost my fear of speaking in meetings."
+                <br><small><strong>- Private Student</strong></small>
+            </div>
+            </div>
     </div>
 
     <p style="opacity: 0.6; font-size: 0.8rem; margin: 40px 0;">© 2026 English Teacher Rush | Curtin University Alumnus</p>
@@ -241,23 +230,20 @@
             en: {
                 bio: "Unlock your potential with an instructor who understands the global stage. Leveraging a dual degree from Curtin University, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.",
                 wa: "Start Your Journey",
-                preply: "Preply",
-                stories: "Success Stories (48+)",
-                vid: "Featured Lesson"
+                preply: "Book on Preply",
+                stories: "Success Stories"
             },
             pt: {
                 bio: "Desbloqueie seu potencial com um instrutor que entende o cenário global. Utilizando meu diploma da Curtin University, transformo o aprendizado de idiomas em um ativo profissional. Junte-se a centenas de alunos que dominaram a fluência através da minha metodologia interativa e de alto impacto.",
                 wa: "Comece Sua Jornada",
-                preply: "Agendar Aula",
-                stories: "Histórias de Sucesso (48+)",
-                vid: "Aula em Destaque"
+                preply: "Agendar no Preply",
+                stories: "Histórias de Sucesso"
             },
             es: {
                 bio: "Libera tu potencial con un instructor que comprende el escenario global. Con un título de Curtin University, transformo el aprendizaje de idiomas en una ventaja profesional. Únete a cientos de estudiantes que han alcanzado la fluidez con mi metodología interactiva de alto impacto.",
                 wa: "Inicia Tu Viaje",
-                preply: "Reservar Aula",
-                stories: "Historias de Éxito (48+)",
-                vid: "Lección Destacada"
+                preply: "Reservar en Preply",
+                stories: "Historias de Éxito"
             }
         };
 
@@ -268,7 +254,6 @@
             document.getElementById('btn-wa').innerText = translations[lang].wa;
             document.getElementById('btn-preply').innerText = translations[lang].preply;
             document.getElementById('stories-title').innerText = translations[lang].stories;
-            document.getElementById('vid-head').innerHTML = `<i class="fas fa-play-circle"></i> ${translations[lang].vid}`;
         }
 
         function toggleTheme() {
