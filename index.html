@@ -13,9 +13,7 @@
             --card-bg: rgba(255, 255, 255, 0.9);
             --text-main: #1e293b;
             --primary-blue: #1d4ed8;
-            --whatsapp: #25D366;
-            --preply: #00afef;
-            --youtube: #FF0000;
+            --accent-yellow: #fbbf24;
         }
 
         [data-theme="dark"] {
@@ -32,88 +30,120 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 60px 20px;
-            transition: 0.5s;
+            padding: 20px;
             overflow-x: hidden;
+            transition: 0.5s;
         }
 
-        /* Animated Title */
-        .brand-title {
-            font-size: 3rem;
+        /* Language & Theme Header */
+        .top-nav {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .lang-pills {
+            display: flex;
+            background: var(--card-bg);
+            padding: 5px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-main);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        .lang-btn.active { background: var(--primary-blue); color: white; }
+
+        /* Animated Header */
+        .brand-name {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 10px;
             text-align: center;
+            margin-bottom: 5px;
             background: linear-gradient(to right, #1d4ed8, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInDown 1s;
+            animation: fadeInDown 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .glass-card {
+        /* Main Card */
+        .main-card {
             background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border-radius: 32px;
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
             padding: 40px;
+            max-width: 550px;
             width: 100%;
-            max-width: 500px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            animation: zoomIn 0.8s;
+            margin-bottom: 40px;
         }
 
-        .bio-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            animation: fadeIn 2s;
-        }
+        .bio-text { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
 
-        .action-btn {
+        /* Buttons */
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             padding: 18px;
-            border-radius: 18px;
+            border-radius: 20px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             color: white;
             margin-bottom: 15px;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
         }
-        .action-btn:hover { transform: translateY(-5px) scale(1.02); }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.1); }
+        .wa { background: #25D366; }
+        .preply { background: #00afef; }
 
-        .whatsapp { background: var(--whatsapp); }
-        .preply { background: var(--preply); }
-        .youtube { background: var(--youtube); }
-
-        /* Review Section */
-        .reviews-section {
-            margin-top: 50px;
-            width: 100%;
-            max-width: 500px;
+        /* Marquee Styles */
+        .marquee-wrapper { width: 100vw; margin: 20px 0; }
+        .marquee { display: flex; overflow: hidden; user-select: none; gap: 20px; }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            gap: 20px;
+            min-width: 100%;
+            animation: scroll-left 60s linear infinite;
         }
+        .marquee-reverse .marquee-content { animation: scroll-right 60s linear infinite; }
 
-        .review-card {
+        @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        @keyframes scroll-right { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+        .review-pill {
             background: var(--card-bg);
             padding: 20px;
             border-radius: 20px;
-            margin-bottom: 15px;
-            border-left: 5px solid var(--accent-yellow, #fbbf24);
-            font-style: italic;
-            animation: fadeInLeft 1s;
+            min-width: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .stars { color: #fbbf24; margin-bottom: 5px; }
-
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
             background: var(--card-bg);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -122,51 +152,104 @@
 </head>
 <body data-theme="light">
 
-    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    <div class="top-nav">
+        <div class="lang-pills">
+            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('pt', this)">PT</button>
+            <button class="lang-btn" onclick="setLang('es', this)">ES</button>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    </div>
 
-    <h1 class="brand-title">English Teacher Rush</h1>
-    
-    <div class="glass-card">
-        <p class="bio-text">
-            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a high-value professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
+    <h1 class="brand-name">English Teacher Rush</h1>
+
+    <div class="main-card">
+        <p id="bio" class="bio-text">
+            Unlock your potential with an instructor who understands the global stage. Leveraging a <strong>Dual Degree from Curtin University</strong>, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.
         </p>
 
-        <div class="action-list">
-            <a href="https://wa.me/5519984270311" class="action-btn whatsapp">
-                <i class="fab fa-whatsapp fa-lg"></i> Start Chatting
-            </a>
-            <a href="YOUR_PREPLY_LINK" class="action-btn preply">
-                <i class="fas fa-star"></i> Book on Preply
-            </a>
-            <a href="YOUR_YOUTUBE_LINK" class="action-btn youtube">
-                <i class="fab fa-youtube"></i> Free Lessons
-            </a>
+        <a href="https://wa.me/5519984270311" class="btn wa">
+            <i class="fab fa-whatsapp"></i> <span id="btn-wa">Start Your Journey</span>
+        </a>
+        <a href="YOUR_PREPLY_LINK" class="btn preply">
+            <i class="fas fa-star"></i> <span id="btn-preply">Book on Preply</span>
+        </a>
+
+        <div style="margin-top: 20px; font-weight: 700; color: var(--primary-blue);">
+            <i class="fas fa-check-circle"></i> 48+ Five-Star Success Stories
         </div>
     </div>
 
-    <div class="reviews-section">
-        <h2 style="text-align: center;">Student Success</h2>
-        
-        <div class="review-card">
-            <div class="stars">★★★★★</div>
-            "Rush is an amazing teacher! His marketing background makes the lessons very practical for my career." 
-            <br><strong>- Student from Brazil</strong>
-        </div>
+    <h2 id="stories-title" style="text-align: center; margin-bottom: 30px;">Success Stories</h2>
 
-        <div class="review-card" style="animation-delay: 0.2s;">
-            <div class="stars">★★★★★</div>
-            "I finally feel confident speaking English in meetings. Highly recommend his classes!" 
-            <br><strong>- Business Student</strong>
+    <div class="marquee-wrapper">
+        <div class="marquee">
+            <div class="marquee-content" id="reviews-row-1">
+                </div>
         </div>
     </div>
 
     <script>
+        const translations = {
+            en: {
+                bio: "Unlock your potential with an instructor who understands the global stage. Leveraging a dual degree from Curtin University, I transform language learning into a professional asset. Join hundreds of students who have mastered fluency through my interactive, high-impact methodology.",
+                wa: "Start Your Journey",
+                preply: "Book on Preply",
+                stories: "Success Stories"
+            },
+            pt: {
+                bio: "Desbloqueie seu potencial com um instrutor que entende o cenário global. Utilizando meu diploma da Curtin University, transformo o aprendizado de idiomas em um ativo profissional. Junte-se a centenas de alunos que dominaram a fluência através da minha metodologia interativa e de alto impacto.",
+                wa: "Comece Sua Jornada",
+                preply: "Agendar no Preply",
+                stories: "Histórias de Sucesso"
+            },
+            es: {
+                bio: "Libera tu potencial con un instructor que comprende el escenario global. Con un título de Curtin University, transformo el aprendizaje de idiomas en una ventaja profesional. Únete a cientos de estudiantes que han alcanzado la fluidez con mi metodología interactiva de alto impacto.",
+                wa: "Inicia Tu Viaje",
+                preply: "Reservar en Preply",
+                stories: "Historias de Éxito"
+            }
+        };
+
+        const reviews = [
+            "\"Rush is amazing! His lessons are practical and very professional.\"",
+            "\"I feel much more confident in business meetings now.\"",
+            "\"4 years of teaching experience really shows. Excellent method!\"",
+            "\"The best choice for learning English in Brazil.\"",
+            "\"Focused, interactive, and truly effective classes.\"",
+            "\"Helped me pass my job interview with ease!\""
+        ];
+
+        function populateReviews() {
+            const row = document.getElementById('reviews-row-1');
+            let html = "";
+            // Duplicate reviews to create a smooth loop
+            [...reviews, ...reviews, ...reviews].forEach(text => {
+                html += `<div class="review-pill">
+                            <div style="color: #fbbf24; margin-bottom: 5px;">★★★★★</div>
+                            ${text}
+                         </div>`;
+            });
+            row.innerHTML = html;
+        }
+
+        function setLang(lang, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('bio').innerHTML = translations[lang].bio.replace("Dual Degree from Curtin University", "<strong>Dual Degree from Curtin University</strong>");
+            document.getElementById('btn-wa').innerText = translations[lang].wa;
+            document.getElementById('btn-preply').innerText = translations[lang].preply;
+            document.getElementById('stories-title').innerText = translations[lang].stories;
+        }
+
         function toggleTheme() {
             const body = document.body;
             const isDark = body.getAttribute('data-theme') === 'dark';
             body.setAttribute('data-theme', isDark ? 'light' : 'dark');
             document.querySelector('.theme-toggle i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
         }
+
+        populateReviews();
     </script>
 </body>
 </html>
