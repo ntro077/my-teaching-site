@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Teacher Rush | Premium Coaching</title>
+    <title>English Teacher Rush | 6000+ Lessons Delivered</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,7 +18,6 @@
             --text: #1e293b;
             --gold: #fbbf24;
             --border: #e2e8f0;
-            --success-bg: #fef3c7;
         }
 
         [data-theme="dark"] {
@@ -27,15 +26,13 @@
             --text: #f1f5f9;
             --tt: #ffffff;
             --border: #334155;
-            --success-bg: rgba(251, 191, 36, 0.1);
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
             color: var(--text);
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             transition: 0.3s ease;
             background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
             background-size: 30px 30px;
@@ -69,10 +66,14 @@
             width: 100%; 
             border-top: 8px solid var(--primary);
             box-sizing: border-box;
+            position: relative;
         }
 
-        .bio { font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; }
+        .bio { font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; }
         .bold { font-weight: 800; color: var(--primary); }
+
+        /* POWER STATS */
+        .stats-line { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 30px; display: block; opacity: 0.9; }
 
         /* BUTTONS */
         .btn-group { display: flex; flex-direction: column; gap: 15px; max-width: 450px; margin: 0 auto; }
@@ -83,27 +84,46 @@
         .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn svg { width: 24px; height: 24px; fill: white; }
 
+        /* STICKY FOOTER BUTTON */
+        .sticky-book {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2000;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(29, 78, 216, 0.4);
+            display: none; /* Shows on scroll */
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
         /* FEATURE GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
-        .f-card { background: var(--card-bg); padding: 25px; border-radius: 25px; border: 1px solid var(--border); transition: 0.3s; text-align: left; }
+        .f-card { background: var(--card-bg); padding: 25px; border-radius: 25px; border: 1px solid var(--border); text-align: left; }
         .f-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
         .f-title { font-weight: 800; font-size: 1rem; margin-bottom: 8px; color: var(--primary); text-transform: uppercase; }
 
         /* SUCCESS STORIES SLIDER */
         .marquee { width: 100%; overflow: hidden; background: var(--card-bg); padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 40px 0; }
         .m-content { display: flex; gap: 30px; animation: scroll 60s linear infinite; width: max-content; }
-        .rev { background: var(--bg); padding: 25px; border-radius: 20px; min-width: 300px; border: 1px solid var(--border); text-align: left; }
-        .stars { color: var(--gold); margin-bottom: 10px; font-size: 1.1rem; }
-
-        /* SPECIALIZATION SECTION */
-        .spec-box { background: var(--card-bg); border-radius: 30px; padding: 40px; border: 1px solid var(--border); margin-top: 40px; }
-        .spec-tabs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
-        .spec-item { background: var(--primary); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; }
+        .rev { background: var(--bg); padding: 25px; border-radius: 20px; min-width: 300px; border: 1px solid var(--border); }
+        .stars { color: var(--gold); margin-bottom: 10px; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body data-theme="light">
+
+    <a href="https://wa.me/5519984270311" class="sticky-book" id="stickyBtn">
+        <span>Book Your Free Session</span> →
+    </a>
 
     <div class="top-nav">
         <div class="controls">
@@ -126,17 +146,16 @@
                 Elevate your fluency with a <span class="bold">Professional Teacher</span> holding a <span class="bold">University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.
             </p>
 
+            <span class="stats-line">⭐⭐⭐⭐⭐ 5.0/5 Rating | 6000+ Lessons Delivered | 30+ Active Students</span>
+
             <div class="btn-group">
                 <a href="https://wa.me/5519984270311" class="btn wa">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     <span id="wa-t">Book Free 20-Min Intro</span>
                 </a>
                 <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre">
-                    <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.89 9L12 4.57 20.11 9 12 13.43 3.89 9zM12 17l-7-3.82V17l7 4 7-4v-3.82L12 17z"/></svg>
                     <span id="pre-t">Full Preply Profile</span>
                 </a>
                 <a href="https://gemini.google.com/app?q=Tell%20me%20about%20Rush's%20English%20classes.%20He%20charges%20%2412%20per%20class.%20Explain%20his%20specializations." target="_blank" class="btn ai-btn">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
                     <span id="ai-t">Ask my AI Assistant</span>
                 </a>
             </div>
@@ -144,22 +163,22 @@
     </section>
 
     <section>
-        <h2 id="why-t" style="font-size: 2rem; font-weight: 800;">Why Study with Rush?</h2>
+        <h2 style="font-size: 2rem; font-weight: 800;">Why Study with Rush?</h2>
         <div class="grid">
             <div class="f-card">
                 <span class="f-icon">🎓</span>
                 <div id="f1-t" class="f-title">Certified Expert</div>
-                <div id="f1-d" class="f-text">Professional Teacher with University Degree and Global Certification.</div>
+                <div class="f-text">Professional Teacher with University Degree and Global Certification.</div>
             </div>
             <div class="f-card">
                 <span class="f-icon">⚡</span>
                 <div id="f2-t" class="f-title">4+ Years Exp.</div>
-                <div id="f2-d" class="f-text">Proven track record in exam prep and professional coaching.</div>
+                <div class="f-text">Proven track record in exam prep and professional coaching.</div>
             </div>
             <div class="f-card">
                 <span class="f-icon">🌍</span>
                 <div id="f3-t" class="f-title">Global Fluency</div>
-                <div id="f3-d" class="f-text">Master natural conversation and native-level expressions.</div>
+                <div class="f-text">Master natural conversation and native-level expressions.</div>
             </div>
         </div>
     </section>
@@ -168,34 +187,15 @@
         <div class="m-content" id="m-list"></div>
     </div>
 
-    <section>
-        <div class="spec-box">
-            <h2 id="spec-h" class="spec-title">Premium Specializations</h2>
-            <div class="spec-tabs">
-                <div class="spec-item">Conversational English</div>
-                <div class="spec-item">IELTS/TOEFL Prep</div>
-                <div class="spec-item">Business Interview Prep</div>
-                <div class="spec-item">Academic Writing</div>
-                <div class="spec-item">Grammar for Professionals</div>
-            </div>
-        </div>
-    </section>
-
     <script>
         const trans = {
             en: { 
                 bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.",
-                wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", spec: "Premium Specializations",
-                f1t: "Certified Expert", f1d: "Professional Teacher with University Degree and Global Certification.",
-                f2t: "4+ Years Exp.", f2d: "Proven track record in exam prep and professional coaching.",
-                f3t: "Global Fluency", f3d: "Master natural conversation and native-level expressions."
+                wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant"
             },
             pt: { 
                 bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.",
-                wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", spec: "Especialidades Premium",
-                f1t: "Especialista", f1d: "Professor profissional com diploma universitário e certificação global.",
-                f2t: "4+ Anos Exp.", f2d: "Histórico comprovado em exames e coaching profissional.",
-                f3t: "Fluência Global", f3d: "Domine conversas naturais e expressões de nível nativo."
+                wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA"
             }
         };
 
@@ -207,10 +207,6 @@
             document.getElementById('wa-t').innerText = t.wa;
             document.getElementById('pre-t').innerText = t.pre;
             document.getElementById('ai-t').innerText = t.ai;
-            document.getElementById('spec-h').innerText = t.spec;
-            document.getElementById('f1-t').innerText = t.f1t; document.getElementById('f1-d').innerText = t.f1d;
-            document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-d').innerText = t.f2d;
-            document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-d').innerText = t.f3d;
         }
 
         function toggleT() {
@@ -220,6 +216,16 @@
             b.setAttribute('data-theme', isDark ? 'light' : 'dark');
             btn.innerText = isDark ? '🌙' : '☀️';
         }
+
+        // Show/Hide sticky button on scroll
+        window.onscroll = function() {
+            const btn = document.getElementById("stickyBtn");
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
 
         const reviews = ["Excellent teacher!", "Helped me get my job.", "Best IELTS coach.", "Very patient and clear.", "Highly recommended!", "Fluent and professional.", "Classes are very fun!", "Improved my confidence."];
         const el = document.getElementById('m-list');
