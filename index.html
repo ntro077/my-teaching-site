@@ -99,7 +99,7 @@
         .trial-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--success); color: white; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.85rem; }
 
         /* TRIAL STEPS */
-        .trial-steps { background: var(--bg); padding: 25px; border-radius: 25px; margin-bottom: 45px; text-align: left; }
+        .trial-steps { background: var(--bg); padding: 25px; border-radius: 25px; margin-bottom: 45px; text-align: left; border: 1px solid var(--border); }
         .step { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start; }
         .step-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; }
         .step-txt { font-size: 0.9rem; font-weight: 600; line-height: 1.4; }
@@ -203,5 +203,54 @@
     <script>
         const trans = {
             en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations", wa: "Chat on WhatsApp", ai: "Ask my AI Assistant", pre: "Book Class on Preply", prc: "Investment & Trial", pl: "Standard Lesson", pp: "per class", tl: "New Students", tm: "20-minute Trial", tb: "Book Trial via WhatsApp", stps: "Inside your 20-min Trial:", st1: "Level Assessment: We'll identify your current English fluency.", st2: "Goal Mapping: Defining your career and personal English targets.", st3: "Sample Lesson: A quick look into my personalized teaching style." },
-            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "Conversar no WhatsApp", ai: "Assistente IA", pre: "Agendar no Preply", prc: "Investimento e Teste", pl: "Aula Padrão", pp: "por aula", tl: "Novos Alunos", tm: "Teste de 20 min", tb: "Agendar Teste no WhatsApp", stps: "Sua aula de teste inclui:", st1: "Nivelamento: Identificaremos sua fluência atual no inglês.", st2: "Metas: Definindo seus objetivos profissionais e pessoais.", st3: "Aula Demonstrativa: Conheça meu estilo de ensino personalizado.", es: { /* added below */ } },
-            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "Chat por WhatsApp", ai: "As
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "Conversar no WhatsApp", ai: "Assistente IA", pre: "Agendar no Preply", prc: "Investimento e Teste", pl: "Aula Padrão", pp: "por aula", tl: "Novos Alunos", tm: "Teste de 20 min", tb: "Agendar Teste no WhatsApp", stps: "Sua aula de teste inclui:", st1: "Nivelamento: Identificaremos sua fluência atual no inglês.", st2: "Metas: Definindo seus objetivos profissionais e pessoais.", st3: "Aula Demonstrativa: Conheça meu estilo de ensino personalizado." },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "Chat por WhatsApp", ai: "Asistente IA", pre: "Reservar en Preply", prc: "Inversión y Prueba", pl: "Clase Estándar", pp: "por clase", tl: "Nuevos Estudiantes", tm: "Prueba de 20 min", tb: "Reservar Prueba por WhatsApp", stps: "Tu prueba de 20 min incluye:", st1: "Evaluación: Identificaremos tu fluidez actual.", st2: "Metas: Definiendo objetivos profesionales.", st3: "Clase de Muestra: Conoce mi estilo de enseñanza." }
+        };
+
+        const reviews = ["Best teacher in Brazil!", "Highly recommended!", "Professional and clear.", "Improved my career!", "Great teaching style!", "Highly effective classes!"];
+
+        function init() {
+            const el = document.getElementById('m-list');
+            const fullList = [...reviews, ...reviews, ...reviews, ...reviews];
+            el.innerHTML = fullList.map(t => `<div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700; font-size: 0.8rem;">"${t}"</div></div>`).join('');
+        }
+
+        function setL(l, b) {
+            document.querySelectorAll('.l-btn').forEach(btn => btn.classList.remove('active'));
+            b.classList.add('active');
+            document.getElementById('bio').innerHTML = trans[l].bio;
+            document.getElementById('v-h').innerText = trans[l].vh;
+            document.getElementById('s1').innerText = trans[l].s1;
+            document.getElementById('s2').innerText = trans[l].s2;
+            document.getElementById('s3').innerText = trans[l].s3;
+            document.getElementById('s4').innerText = trans[l].s4;
+            document.getElementById('lbl-stories').innerText = trans[l].lbl1;
+            document.getElementById('lbl-specs').innerText = trans[l].lbl2;
+            document.getElementById('btn-wa').innerText = trans[l].wa;
+            document.getElementById('btn-ai').innerText = trans[l].ai;
+            document.getElementById('btn-pre').innerText = trans[l].pre;
+            document.getElementById('lbl-pricing').innerText = trans[l].prc;
+            document.getElementById('p-label').innerText = trans[l].pl;
+            document.getElementById('p-per').innerText = trans[l].pp;
+            document.getElementById('t-label').innerText = trans[l].tl;
+            document.getElementById('t-min').innerText = trans[l].tm;
+            document.getElementById('t-btn').innerText = trans[l].tb;
+            document.getElementById('lbl-steps').innerText = trans[l].stps;
+            document.getElementById('st1').innerText = trans[l].st1;
+            document.getElementById('st2').innerText = trans[l].st2;
+            document.getElementById('st3').innerText = trans[l].st3;
+        }
+
+        function toggleT() {
+            const b = document.body;
+            const btn = document.getElementById('theme-icon');
+            const isDark = b.getAttribute('data-theme') === 'dark';
+            b.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            btn.innerText = isDark ? '🌙' : '☀️';
+        }
+
+        // Initialize marquee on load
+        window.onload = init;
+    </script>
+</body>
+</html>
