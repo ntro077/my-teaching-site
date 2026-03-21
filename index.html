@@ -75,8 +75,49 @@
         .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 20px; text-decoration: none; font-weight: 800; color: white; transition: 0.3s; font-size: 1.05rem; }
         .wa { background: var(--success); }
         .pre { background: var(--preply); }
-        .ai-btn { background: var(--ai-color); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+        /* ✨ NEW WORDS BUTTON */
+        .words-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 22px 18px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            animation: glow 3s ease-in-out infinite;
+            border: none;
+            cursor: pointer;
+        }
+        .words-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -60%;
+            width: 60%; height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: skewX(-20deg);
+            animation: shimmer 2.5s infinite;
+        }
+        .words-badge {
+            position: absolute;
+            top: -1px; right: 14px;
+            background: #ffffff;
+            color: #ef4444;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 0 0 10px 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        @keyframes shimmer {
+            0% { left: -60%; }
+            100% { left: 120%; }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(245,158,11,0.4), 0 0 40px rgba(239,68,68,0.2); }
+            50% { box-shadow: 0 0 30px rgba(245,158,11,0.7), 0 0 60px rgba(239,68,68,0.4); }
+        }
 
         .section-label { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--primary); letter-spacing: 2px; margin-bottom: 18px; }
 
@@ -142,9 +183,15 @@
             </p>
 
             <div class="btn-group">
-                <a href="https://wa.me/5519984270311" class="btn wa" id="btn-wa">Chat on WhatsApp</a>
-                <a href="https://gemini.google.com/app?q=Help%20me%20learn%20English%20with%20Teacher%20Rush." target="_blank" class="btn ai-btn" id="btn-ai">Ask my AI Assistant</a>
-                <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre" id="btn-pre">Book Class on Preply</a>
+                <a href="https://wa.me/5519984270311" class="btn wa" id="btn-wa">💬 Chat on WhatsApp</a>
+
+                <!-- ✨ NEW WORDS APP BUTTON -->
+                <a href="https://ntro077.github.io/english-practice/" target="_blank" class="btn words-btn" id="btn-words">
+                    <span class="words-badge">FREE</span>
+                    📚 Learn 3000 English Words — Start Now!
+                </a>
+
+                <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre" id="btn-pre">🎓 Book Class on Preply</a>
             </div>
 
             <div class="section-label" id="lbl-stories">Success Stories</div>
@@ -202,9 +249,9 @@
 
     <script>
         const trans = {
-            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations", wa: "Chat on WhatsApp", ai: "Ask my AI Assistant", pre: "Book Class on Preply", prc: "Investment & Trial", pl: "Standard Lesson", pp: "per class", tl: "New Students", tm: "20-minute Trial", tb: "Book Trial via WhatsApp", stps: "Inside your 20-min Trial:", st1: "Level Assessment: We'll identify your current English fluency.", st2: "Goal Mapping: Defining your career and personal English targets.", st3: "Sample Lesson: A quick look into my personalized teaching style." },
-            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "Conversar no WhatsApp", ai: "Assistente IA", pre: "Agendar no Preply", prc: "Investimento e Teste", pl: "Aula Padrão", pp: "por aula", tl: "Novos Alunos", tm: "Teste de 20 min", tb: "Agendar Teste no WhatsApp", stps: "Sua aula de teste inclui:", st1: "Nivelamento: Identificaremos sua fluência atual no inglês.", st2: "Metas: Definindo seus objetivos profissionais e pessoais.", st3: "Aula Demonstrativa: Conheça meu estilo de ensino personalizado." },
-            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "Chat por WhatsApp", ai: "Asistente IA", pre: "Reservar en Preply", prc: "Inversión y Prueba", pl: "Clase Estándar", pp: "por clase", tl: "Nuevos Estudiantes", tm: "Prueba de 20 min", tb: "Reservar Prueba por WhatsApp", stps: "Tu prueba de 20 min incluye:", st1: "Evaluación: Identificaremos tu fluidez actual.", st2: "Metas: Definiendo objetivos profesionales.", st3: "Clase de Muestra: Conoce mi estilo de enseñanza." }
+            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations", wa: "💬 Chat on WhatsApp", words: "📚 Learn 3000 English Words — Start Now!", pre: "🎓 Book Class on Preply", prc: "Investment & Trial", pl: "Standard Lesson", pp: "per class", tl: "New Students", tm: "20-minute Trial", tb: "Book Trial via WhatsApp", stps: "Inside your 20-min Trial:", st1: "Level Assessment: We'll identify your current English fluency.", st2: "Goal Mapping: Defining your career and personal English targets.", st3: "Sample Lesson: A quick look into my personalized teaching style." },
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "💬 Conversar no WhatsApp", words: "📚 Aprenda 3000 Palavras em Inglês — Comece Agora!", pre: "🎓 Agendar no Preply", prc: "Investimento e Teste", pl: "Aula Padrão", pp: "por aula", tl: "Novos Alunos", tm: "Teste de 20 min", tb: "Agendar Teste no WhatsApp", stps: "Sua aula de teste inclui:", st1: "Nivelamento: Identificaremos sua fluência atual no inglês.", st2: "Metas: Definindo seus objetivos profissionais e pessoais.", st3: "Aula Demonstrativa: Conheça meu estilo de ensino personalizado." },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "💬 Chat por WhatsApp", words: "📚 Aprende 3000 Palabras en Inglés — ¡Empieza Ya!", pre: "🎓 Reservar en Preply", prc: "Inversión y Prueba", pl: "Clase Estándar", pp: "por clase", tl: "Nuevos Estudiantes", tm: "Prueba de 20 min", tb: "Reservar Prueba por WhatsApp", stps: "Tu prueba de 20 min incluye:", st1: "Evaluación: Identificaremos tu fluidez actual.", st2: "Metas: Definiendo objetivos profesionales.", st3: "Clase de Muestra: Conoce mi estilo de enseñanza." }
         };
 
         const reviews = ["Best teacher in Brazil!", "Highly recommended!", "Professional and clear.", "Improved my career!", "Great teaching style!", "Highly effective classes!"];
@@ -227,7 +274,7 @@
             document.getElementById('lbl-stories').innerText = trans[l].lbl1;
             document.getElementById('lbl-specs').innerText = trans[l].lbl2;
             document.getElementById('btn-wa').innerText = trans[l].wa;
-            document.getElementById('btn-ai').innerText = trans[l].ai;
+            document.getElementById('btn-words').childNodes[1].textContent = trans[l].words;
             document.getElementById('btn-pre').innerText = trans[l].pre;
             document.getElementById('lbl-pricing').innerText = trans[l].prc;
             document.getElementById('p-label').innerText = trans[l].pl;
@@ -249,7 +296,6 @@
             btn.innerText = isDark ? '🌙' : '☀️';
         }
 
-        // Initialize marquee on load
         window.onload = init;
     </script>
 </body>
