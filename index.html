@@ -75,6 +75,11 @@
         .ai-btn { background: var(--ai-color); }
         .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
+        /* SPECIALIZATIONS */
+        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 30px; }
+        .spec-card { background: var(--card-bg); border: 2px solid var(--border); padding: 20px; border-radius: 20px; font-weight: 700; transition: 0.3s; }
+        .spec-card:hover { border-color: var(--primary); transform: scale(1.05); }
+
         /* VIDEO SECTION */
         .video-container { 
             margin-top: 30px; 
@@ -139,20 +144,32 @@
         </div>
     </section>
 
+    <section>
+        <h2 id="spec-h" style="font-size: 2rem; font-weight: 800;">Premium Specializations</h2>
+        <div class="spec-grid">
+            <div class="spec-card">Business English</div>
+            <div class="spec-card">Conversational Flow</div>
+            <div class="spec-card">Job Interview Prep</div>
+            <div class="spec-card">IELTS / TOEFL Prep</div>
+            <div class="spec-card">Academic Writing</div>
+            <div class="spec-card">Public Speaking</div>
+        </div>
+    </section>
+
     <div class="marquee"><div class="m-content" id="m-list"></div></div>
 
     <section>
         <h2 id="vid-h" style="font-size: 2rem; font-weight: 800;">Watch a Free Lesson</h2>
         <p id="vid-p" style="opacity: 0.8; margin-bottom: 20px;">See my teaching style in action before you book!</p>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=UU6vW-V7l256mF2H0n7n_SzA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/videoseries?list=UU6vW-V7l256mF2H0n7n_SzA" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <script>
         const trans = {
-            en: { bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.", wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", vidh: "Watch a Free Lesson", vidp: "See my teaching style in action before you book!" },
-            pt: { bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.", wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", vidh: "Assista uma Aula Grátis", vidp: "Veja meu estilo de ensino em ação antes de agendar!" }
+            en: { bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.", wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", vidh: "Watch a Free Lesson", vidp: "See my teaching style in action before you book!", spech: "Premium Specializations" },
+            pt: { bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.", wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", vidh: "Assista uma Aula Grátis", vidp: "Veja meu estilo de ensino em ação antes de agendar!", spech: "Especialidades Premium" }
         };
 
         function setL(l, b) {
@@ -165,6 +182,7 @@
             document.getElementById('ai-t').innerText = t.ai;
             document.getElementById('vid-h').innerText = t.vidh;
             document.getElementById('vid-p').innerText = t.vidp;
+            document.getElementById('spec-h').innerText = t.spech;
         }
 
         function toggleT() {
