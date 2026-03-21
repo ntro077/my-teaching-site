@@ -17,6 +17,7 @@
             --text: #1e293b;
             --gold: #fbbf24;
             --border: #e2e8f0;
+            --success: #22c55e;
         }
 
         [data-theme="dark"] {
@@ -70,10 +71,9 @@
         .bio { font-size: 1.15rem; line-height: 1.8; margin-bottom: 35px; }
         .bold { font-weight: 800; color: var(--primary); }
 
-        /* ACTION BUTTONS (NOW UNDER BIO) */
         .btn-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 45px; }
         .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 20px; text-decoration: none; font-weight: 800; color: white; transition: 0.3s; font-size: 1.05rem; }
-        .wa { background: #22c55e; }
+        .wa { background: var(--success); }
         .pre { background: var(--preply); }
         .ai-btn { background: var(--ai-color); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
@@ -89,14 +89,21 @@
         /* SPECIALITIES */
         .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 45px; }
         .spec-btn { background: var(--primary); color: white; padding: 20px; border-radius: 18px; font-weight: 800; font-size: 0.95rem; border: none; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .spec-btn:hover { filter: brightness(1.1); }
 
-        /* VIDEO SECTION (END) */
+        /* NEW PRICING SECTION */
+        .pricing-box { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 45px; }
+        .price-card { background: var(--bg); padding: 25px; border-radius: 25px; border: 2px solid var(--border); text-align: center; }
+        .price-card.featured { border-color: var(--success); background: rgba(34, 197, 94, 0.05); }
+        .price-val { font-size: 2.5rem; font-weight: 800; color: var(--text); margin: 10px 0; }
+        .price-sub { font-size: 0.9rem; font-weight: 700; opacity: 0.7; }
+        .trial-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--success); color: white; text-decoration: none; border-radius: 50px; font-weight: 800; font-size: 0.85rem; }
+
+        /* VIDEO SECTION */
         .video-section { margin-top: 10px; padding-top: 40px; border-top: 2px dashed var(--border); }
         .video-container { width: 100%; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); aspect-ratio: 16 / 9; background: #000; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @media (max-width: 600px) { .specs-grid { grid-template-columns: 1fr; } .top-nav { flex-direction: column; gap: 15px; } }
+        @media (max-width: 600px) { .specs-grid, .pricing-box { grid-template-columns: 1fr; } .top-nav { flex-direction: column; gap: 15px; } }
     </style>
 </head>
 <body data-theme="light">
@@ -147,6 +154,21 @@
                 <div class="spec-btn" id="s4">Grammar Mastery</div>
             </div>
 
+            <div class="section-label" id="lbl-pricing">Investment & Trial</div>
+            <div class="pricing-box">
+                <div class="price-card">
+                    <div class="price-sub" id="p-label">Standard Lesson</div>
+                    <div class="price-val">$12</div>
+                    <div class="price-sub" id="p-per">per class</div>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-sub" id="t-label">New Students</div>
+                    <div class="price-val">FREE</div>
+                    <div class="price-sub" id="t-min">20-minute Trial</div>
+                    <a href="https://wa.me/5519984270311?text=Hi%20Rush!%20I'd%20like%20to%20book%20my%20free%2020-minute%20trial%20class." class="trial-btn" id="t-btn">Book Trial via WhatsApp</a>
+                </div>
+            </div>
+
             <div class="video-section">
                 <div class="section-label" id="v-h">Featured Video Lesson</div>
                 <div class="video-container">
@@ -158,9 +180,9 @@
 
     <script>
         const trans = {
-            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations", wa: "Chat on WhatsApp", ai: "Ask my AI Assistant", pre: "Book Class on Preply" },
-            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "Conversar no WhatsApp", ai: "Fale com Assistente IA", pre: "Agendar no Preply" },
-            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "Chat por WhatsApp", ai: "Asistente IA", pre: "Reservar en Preply" }
+            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations", wa: "Chat on WhatsApp", ai: "Ask my AI Assistant", pre: "Book Class on Preply", prc: "Investment & Trial", pl: "Standard Lesson", pp: "per class", tl: "New Students", tm: "20-minute Trial", tb: "Book Trial via WhatsApp" },
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades", wa: "Conversar no WhatsApp", ai: "Fale com Assistente IA", pre: "Agendar no Preply", prc: "Investimento e Teste", pl: "Aula Padrão", pp: "por aula", tl: "Novos Alunos", tm: "Teste de 20 min", tb: "Agendar Teste no WhatsApp" },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Domínio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades", wa: "Chat por WhatsApp", ai: "Asistente IA", pre: "Reservar en Preply", prc: "Inversión y Prueba", pl: "Clase Estándar", pp: "por clase", tl: "Nuevos Estudiantes", tm: "Prueba de 20 min", tb: "Reservar Prueba por WhatsApp" }
         };
 
         const reviews = ["Best teacher in Brazil!", "Highly recommended!", "Professional and clear.", "Improved my career!", "Great teaching style!", "Highly effective classes!"];
@@ -185,6 +207,12 @@
             document.getElementById('btn-wa').innerText = trans[l].wa;
             document.getElementById('btn-ai').innerText = trans[l].ai;
             document.getElementById('btn-pre').innerText = trans[l].pre;
+            document.getElementById('lbl-pricing').innerText = trans[l].prc;
+            document.getElementById('p-label').innerText = trans[l].pl;
+            document.getElementById('p-per').innerText = trans[l].pp;
+            document.getElementById('t-label').innerText = trans[l].tl;
+            document.getElementById('t-min').innerText = trans[l].tm;
+            document.getElementById('t-btn').innerText = trans[l].tb;
         }
 
         function toggleT() {
