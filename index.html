@@ -70,17 +70,18 @@
         .bio { font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; }
         .bold { font-weight: 800; color: var(--primary); }
 
-        /* SUCCESS STORIES SECTION (MIDDLE) */
         .section-label { font-size: 0.9rem; font-weight: 800; text-transform: uppercase; color: var(--primary); letter-spacing: 2px; margin-bottom: 20px; }
+
+        /* SUCCESS STORIES (MIDDLE) */
         .marquee { width: 100%; overflow: hidden; background: var(--bg); padding: 25px 0; border-radius: 25px; margin-bottom: 45px; border: 1px solid var(--border); }
         .m-content { display: flex; gap: 20px; animation: scroll 40s linear infinite; width: max-content; }
         .rev { background: var(--card-bg); padding: 20px; border-radius: 18px; min-width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .stars { color: var(--gold); margin-bottom: 8px; font-size: 0.8rem; }
 
-        /* SPECIALITIES SECTION (BLUE BUTTONS) */
+        /* SPECIALITIES (LARGE BLUE BUTTONS) */
         .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 45px; }
-        .spec-btn { background: var(--primary); color: white; padding: 18px; border-radius: 15px; font-weight: 800; font-size: 0.95rem; border: none; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
-        .spec-btn:hover { transform: scale(1.03); filter: brightness(1.1); }
+        .spec-btn { background: var(--primary); color: white; padding: 22px; border-radius: 18px; font-weight: 800; font-size: 1rem; border: none; display: flex; align-items: center; justify-content: center; transition: 0.3s; box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2); }
+        .spec-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
         /* ACTION BUTTONS */
         .btn-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px; }
@@ -141,15 +142,9 @@
             </div>
             
             <div class="btn-group">
-                <a href="https://wa.me/5519984270311" class="btn wa">
-                    <span id="wa-t">Chat on WhatsApp</span>
-                </a>
-                <a href="https://gemini.google.com/app?q=I%20want%20to%20study%20with%20Teacher%20Rush.%20Tell%20me%20about%20his%20classes." target="_blank" class="btn ai-btn">
-                    <span id="ai-t">Ask my AI Assistant</span>
-                </a>
-                <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre">
-                    <span id="pre-t">Book Class on Preply</span>
-                </a>
+                <a href="https://wa.me/5519984270311" class="btn wa">Chat on WhatsApp</a>
+                <a href="https://gemini.google.com/app?q=Help%20me%20learn%20English%20with%20Teacher%20Rush." target="_blank" class="btn ai-btn">Ask my AI Assistant</a>
+                <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre">Book Class on Preply</a>
             </div>
 
             <div class="video-section">
@@ -163,12 +158,12 @@
 
     <script>
         const trans = {
-            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", wa: "Chat on WhatsApp", ai: "Ask my AI Assistant", pre: "Book Class on Preply", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations" },
-            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", wa: "Conversar no WhatsApp", ai: "Fale com meu Assistente IA", pre: "Agendar no Preply", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades" },
-            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", wa: "Chat por WhatsApp", ai: "Pregunta a mi Asistente IA", pre: "Reservar en Preply", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades" }
+            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", vh: "Featured Video Lesson", s1: "Conversational English", s2: "Business English", s3: "Exam Preparation", s4: "Grammar Mastery", lbl1: "Success Stories", lbl2: "Specializations" },
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", vh: "Aula em Destaque", s1: "Inglês para Conversação", s2: "Inglês para Negócios", s3: "Preparação para Exames", s4: "Domínio da Gramática", lbl1: "Casos de Sucesso", lbl2: "Especialidades" },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", vh: "Lección Destacada", s1: "Inglés Conversacional", s2: "Inglés de Negocios", s3: "Preparación de Exámenes", s4: "Dominio de Gramática", lbl1: "Historias de Éxito", lbl2: "Especialidades" }
         };
 
-        const reviews = ["Best teacher in Brazil!", "Highly recommended!", "Professional and clear.", "Improved my career!", "Great teaching style!", "Passionate and methodical."];
+        const reviews = ["Best teacher in Brazil!", "Highly recommended!", "Professional and clear.", "Improved my career!", "Great teaching style!", "Highly effective classes!"];
 
         function init() {
             const el = document.getElementById('m-list');
@@ -180,9 +175,6 @@
             document.querySelectorAll('.l-btn').forEach(btn => btn.classList.remove('active'));
             b.classList.add('active');
             document.getElementById('bio').innerHTML = trans[l].bio;
-            document.getElementById('wa-t').innerText = trans[l].wa;
-            document.getElementById('ai-t').innerText = trans[l].ai;
-            document.getElementById('pre-t').innerText = trans[l].pre;
             document.getElementById('v-h').innerText = trans[l].vh;
             document.getElementById('s1').innerText = trans[l].s1;
             document.getElementById('s2').innerText = trans[l].s2;
