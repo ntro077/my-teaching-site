@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Teacher Rush | 6000+ Lessons Delivered</title>
+    <title>English Teacher Rush | Premium Coaching</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1d4ed8;
             --preply: #ff007a;
             --ai-color: #8b5cf6;
-            --wa-color: #22c55e;
             --yt: #FF0000;
             --tt: #000000;
             --bg: #f1f5f9;
@@ -18,6 +17,7 @@
             --text: #1e293b;
             --gold: #fbbf24;
             --border: #e2e8f0;
+            --success-bg: #fef3c7;
         }
 
         [data-theme="dark"] {
@@ -26,100 +26,113 @@
             --text: #f1f5f9;
             --tt: #ffffff;
             --border: #334155;
+            --success-bg: rgba(251, 191, 36, 0.1);
         }
 
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg);
             color: var(--text);
-            margin: 0; padding: 0; 
+            margin: 0; 
+            padding: 0; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             transition: 0.3s ease;
             background-image: radial-gradient(#cbd5e1 0.5px, transparent 0.5px);
             background-size: 30px 30px;
-            scroll-behavior: smooth;
         }
 
-        .top-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; }
         .controls { display: flex; align-items: center; gap: 10px; }
+
         .l-pills { display: flex; background: var(--card-bg); padding: 4px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .l-btn { border: none; background: none; padding: 6px 12px; border-radius: 50px; cursor: pointer; font-weight: 700; color: var(--text); font-size: 0.75rem; }
         .l-btn.active { background: var(--primary); color: white; }
+
         .theme-btn { background: var(--card-bg); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; color: var(--text); box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
 
         .socials { display: flex; gap: 8px; }
-        .pill { text-decoration: none; color: white; padding: 8px 14px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; }
+        .pill { text-decoration: none; color: white; padding: 8px 14px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; }
         .p-yt { background: var(--yt); }
         .p-tt { background: var(--tt); color: white !important; }
         [data-theme="dark"] .p-tt { background: #ffffff; color: #000000 !important; }
 
-        section { max-width: 900px; margin: 0 auto; padding: 60px 20px; text-align: center; }
-        .brand { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800; color: var(--primary); margin-bottom: 10px; letter-spacing: -2px; }
+        .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; }
+        .brand { font-size: clamp(2.2rem, 7vw, 3.5rem); font-weight: 800; color: var(--primary); margin-bottom: 15px; letter-spacing: -1.5px; margin-top: 0; }
         
-        .main-card { 
+        .card { 
             background: var(--card-bg); 
-            padding: 40px; 
+            padding: 30px 40px; 
             border-radius: 30px; 
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15); 
+            max-width: 550px; 
             width: 100%; 
             border-top: 8px solid var(--primary);
-            box-sizing: border-box;
+            position: relative;
         }
 
-        .bio { font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; }
-        .stats-line { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 30px; display: block; opacity: 0.9; }
+        .flags-row { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 25px; }
+        
+        .bio { font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px; }
+        .bold { font-weight: 800; color: var(--primary); }
 
-        .btn-group { display: flex; flex-direction: column; gap: 15px; max-width: 450px; margin: 0 auto; }
-        .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 20px; text-decoration: none; font-weight: 800; color: white; transition: 0.3s; font-size: 1.1rem; }
-        .wa { background: var(--wa-color); }
+        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 18px; text-decoration: none; font-weight: 800; color: white; margin-bottom: 12px; transition: 0.3s; font-size: 1rem; }
+        .wa { background: #22c55e; }
         .pre { background: var(--preply); }
         .ai-btn { background: var(--ai-color); }
-        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn svg { width: 22px; height: 22px; fill: white; }
 
-        /* SPECIALIZATIONS (BLUE BUTTONS) */
-        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 30px; }
-        .spec-card { background: var(--primary); color: white; padding: 15px 20px; border-radius: 15px; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; border: none; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2); }
-        .spec-card:hover { transform: translateY(-3px); filter: brightness(1.2); box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3); }
-
-        /* VIDEO SECTION */
+        /* Video Section Styling */
         .video-container { 
             margin-top: 30px; 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
+            width: 100%; 
+            border-radius: 20px; 
             overflow: hidden; 
-            border-radius: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 4px solid var(--card-bg);
-            background: #000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            aspect-ratio: 16 / 9;
         }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        /* STICKY CTA */
-        .sticky-book {
-            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 2000;
-            background: var(--primary); color: white; padding: 15px 30px; border-radius: 50px;
-            text-decoration: none; font-weight: 800; box-shadow: 0 10px 30px rgba(29, 78, 216, 0.4);
-            display: none; align-items: center; gap: 10px;
+        .video-title { 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            margin-bottom: 10px; 
+            color: var(--text); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
         }
 
-        .marquee { width: 100%; overflow: hidden; background: var(--card-bg); padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 40px 0; }
-        .m-content { display: flex; gap: 30px; animation: scroll 60s linear infinite; width: max-content; }
-        .rev { background: var(--bg); padding: 25px; border-radius: 20px; min-width: 300px; border: 1px solid var(--border); text-align: left; }
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--success-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--gold);
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .success-badge:hover { transform: scale(1.05); }
+        .success-badge span { font-weight: 800; color: #b45309; font-size: 0.85rem; }
+
+        .marquee { width: 100%; overflow: hidden; background: var(--card-bg); padding: 30px 0; border-top: 1px solid var(--border); }
+        .m-content { display: flex; gap: 25px; animation: scroll 50s linear infinite; width: max-content; }
+        .rev { background: var(--bg); padding: 20px; border-radius: 18px; min-width: 250px; border: 1px solid var(--border); }
+        .stars { color: var(--gold); margin-bottom: 8px; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body data-theme="light">
 
-    <a href="https://wa.me/5519984270311" class="sticky-book" id="stickyBtn">
-        <span>Book Your Free Session</span> →
-    </a>
-
     <div class="top-nav">
         <div class="controls">
             <div class="l-pills">
                 <button class="l-btn active" onclick="setL('en', this)">EN</button>
                 <button class="l-btn" onclick="setL('pt', this)">PT</button>
+                <button class="l-btn" onclick="setL('es', this)">ES</button>
             </div>
             <button class="theme-btn" onclick="toggleT()" id="theme-icon">🌙</button>
         </div>
@@ -129,61 +142,67 @@
         </div>
     </div>
 
-    <section class="hero">
+    <div class="hero">
         <h1 class="brand">English Teacher Rush</h1>
-        <div class="main-card">
-            <p id="bio" class="bio">
-                Elevate your fluency with a <span class="bold">Professional Teacher</span> holding a <span class="bold">University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.
-            </p>
-            <span class="stats-line">⭐⭐⭐⭐⭐ 5.0/5 Rating | 6000+ Lessons Delivered | 30+ Active Students</span>
+        <div class="card">
+            <div class="flags-row">
+                </div>
 
-            <div class="btn-group">
-                <a href="https://wa.me/5519984270311" class="btn wa"><span id="wa-t">Book Free 20-Min Intro</span></a>
-                <a href="https://preply.com/en/tutor/5019873" target="_blank" class="btn pre"><span id="pre-t">Full Preply Profile</span></a>
-                <a href="https://gemini.google.com/app?q=Tell%20me%20about%20Rush's%20English%20classes.%20He%20charges%20%2412%20per%20class.%20Explain%20his%20specializations." target="_blank" class="btn ai-btn"><span id="ai-t">Ask my AI Assistant</span></a>
+            <p id="bio" class="bio">
+                Unlock your potential with a professional who understands the global stage. Leveraging my <span class="bold">Dual Degree from Curtin University</span> and <span class="bold">4+ years of expertise</span>, I transform English into your greatest career asset.
+            </p>
+            
+            <a href="https://wa.me/5519984270311" class="btn wa">
+                <span id="wa-t">Start Your Journey</span>
+            </a>
+
+            <a href="https://gemini.google.com/app?q=You%20are%20the%20AI%20Assistant%20for%20Rush%2C%20a%20professional%20English%20teacher%20with%20a%20degree%20from%20Curtin%20University.%20I%20am%20a%20potential%20student.%20Tell%20me%20how%20Rush%20teaches.%20Also%20mention%20his%20featured%20video%20about%20'Let's%20have%20a%20party'%20and%20the%20use%20of%20'Be%20Going%20To'.%20Keep%20it%20encouraging!" target="_blank" class="btn ai-btn">
+                <span id="ai-t">Ask my AI Assistant</span>
+            </a>
+            
+            <a href="https://preply.com/en/tutor/5019873?utm_source=friend_plg&utm_medium=copy_link&utm_campaign=tut_plg_st_all_0_mul_xx_multiplesub_share-your-tutor-6&utm_content=MTQxMjExMDY%3D&ts=17740290" target="_blank" class="btn pre">
+                <span id="pre-t">Book on Preply</span>
+            </a>
+
+            <div class="video-title" id="v-title">Latest Video Lesson</div>
+            <div class="video-container">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DBmvmQk5FOk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="success-badge" onclick="document.querySelector('.marquee').scrollIntoView({behavior:'smooth'})">
+                <span id="success-t">Success Stories</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section>
-        <h2 id="spec-h" style="font-size: 2rem; font-weight: 800;">Specialization</h2>
-        <div class="spec-grid">
-            <div class="spec-card">Business English</div>
-            <div class="spec-card">Conversational Flow</div>
-            <div class="spec-card">Job Interview Prep</div>
-            <div class="spec-card">IELTS / TOEFL Prep</div>
-            <div class="spec-card">Academic Writing</div>
-            <div class="spec-card">Public Speaking</div>
-        </div>
-    </section>
-
-    <div class="marquee"><div class="m-content" id="m-list"></div></div>
-
-    <section>
-        <h2 id="vid-h" style="font-size: 2rem; font-weight: 800;">Watch a Free Lesson</h2>
-        <p id="vid-p" style="opacity: 0.8; margin-bottom: 20px;">See my teaching style in action before you book!</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/P606p20R6v8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </section>
+    <div class="marquee">
+        <div class="m-content" id="m-list"></div>
+    </div>
 
     <script>
         const trans = {
-            en: { bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.", wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", vidh: "Watch a Free Lesson", vidp: "See my teaching style in action before you book!", spech: "Specialization" },
-            pt: { bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.", wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", vidh: "Assista uma Aula Grátis", vidp: "Veja meu estilo de ensino em ação antes de agendar!", spech: "Especialização" }
+            en: { bio: "Unlock your potential with a professional who understands the global stage. Leveraging my <span class=\"bold\">Dual Degree from Curtin University</span> and <span class=\"bold\">4+ years of expertise</span>, I transform English into your greatest career asset.", wa: "Start Your Journey", ai: "Ask my AI Assistant", pre: "Book on Preply", success: "Success Stories", vtitle: "Latest Video Lesson" },
+            pt: { bio: "Desbloqueie seu potencial com um profissional que entende o cenário global. Com meu <span class=\"bold\">diploma da Curtin University</span> e <span class=\"bold\">4+ anos de experiência</span>, transformo o inglês no seu maior ativo profissional.", wa: "Comece sua Jornada", ai: "Fale com meu Assistente IA", pre: "Agendar no Preply", success: "Casos de Sucesso", vtitle: "Última Aula em Vídeo" },
+            es: { bio: "Libera tu potencial con un instructor que entiende el escenario global. Con mi <span class=\"bold\">título de Curtin University</span> y <span class=\"bold\">4+ años de experiencia</span>, transformo el inglés en tu mayor ventaja profesional.", wa: "Inicia tu Viaje", ai: "Pregunta a mi Asistente IA", pre: "Reservar en Preply", success: "Historias de Éxito", vtitle: "Última Lección en Video" }
         };
+
+        const reviews = ["Best teacher in Brazil!", "Very professional and clear.", "Helped my career immensely.", "Passionate and methodical.", "Highly recommended!"];
+
+        function init() {
+            const el = document.getElementById('m-list');
+            const fullList = [...reviews, ...reviews, ...reviews, ...reviews];
+            el.innerHTML = fullList.map(t => `<div class="rev"><div class="stars">★★★★★</div><div style="font-weight:600;">"${t}"</div></div>`).join('');
+        }
 
         function setL(l, b) {
             document.querySelectorAll('.l-btn').forEach(btn => btn.classList.remove('active'));
             b.classList.add('active');
-            const t = trans[l] || trans.en;
-            document.getElementById('bio').innerHTML = t.bio;
-            document.getElementById('wa-t').innerText = t.wa;
-            document.getElementById('pre-t').innerText = t.pre;
-            document.getElementById('ai-t').innerText = t.ai;
-            document.getElementById('vid-h').innerText = t.vidh;
-            document.getElementById('vid-p').innerText = t.vidp;
-            document.getElementById('spec-h').innerText = t.spech;
+            document.getElementById('bio').innerHTML = trans[l].bio;
+            document.getElementById('wa-t').innerText = trans[l].wa;
+            document.getElementById('ai-t').innerText = trans[l].ai;
+            document.getElementById('pre-t').innerText = trans[l].pre;
+            document.getElementById('success-t').innerText = trans[l].success;
+            document.getElementById('v-title').innerText = trans[l].vtitle;
         }
 
         function toggleT() {
@@ -194,14 +213,7 @@
             btn.innerText = isDark ? '🌙' : '☀️';
         }
 
-        window.onscroll = function() {
-            const btn = document.getElementById("stickyBtn");
-            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { btn.style.display = "flex"; } else { btn.style.display = "none"; }
-        };
-
-        const reviews = ["Excellent teacher!", "Helped me get my job.", "Best IELTS coach.", "Very patient and clear.", "Highly recommended!", "Fluent and professional."];
-        const el = document.getElementById('m-list');
-        el.innerHTML = [...reviews, ...reviews, ...reviews].map(r => `<div class="rev"><div class="stars">★★★★★</div><div style="font-weight:700">"${r}"</div></div>`).join('');
+        init();
     </script>
 </body>
 </html>
