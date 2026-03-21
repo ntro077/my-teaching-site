@@ -75,10 +75,10 @@
         .ai-btn { background: var(--ai-color); }
         .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        /* SPECIALIZATIONS */
-        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 30px; }
-        .spec-card { background: var(--card-bg); border: 2px solid var(--border); padding: 20px; border-radius: 20px; font-weight: 700; transition: 0.3s; }
-        .spec-card:hover { border-color: var(--primary); transform: scale(1.05); }
+        /* SPECIALIZATIONS (BLUE BUTTONS) */
+        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 30px; }
+        .spec-card { background: var(--primary); color: white; padding: 15px 20px; border-radius: 15px; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.3s; border: none; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2); }
+        .spec-card:hover { transform: translateY(-3px); filter: brightness(1.2); box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3); }
 
         /* VIDEO SECTION */
         .video-container { 
@@ -90,6 +90,7 @@
             border-radius: 25px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 4px solid var(--card-bg);
+            background: #000;
         }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
@@ -145,7 +146,7 @@
     </section>
 
     <section>
-        <h2 id="spec-h" style="font-size: 2rem; font-weight: 800;">Premium Specializations</h2>
+        <h2 id="spec-h" style="font-size: 2rem; font-weight: 800;">Specialization</h2>
         <div class="spec-grid">
             <div class="spec-card">Business English</div>
             <div class="spec-card">Conversational Flow</div>
@@ -162,14 +163,14 @@
         <h2 id="vid-h" style="font-size: 2rem; font-weight: 800;">Watch a Free Lesson</h2>
         <p id="vid-p" style="opacity: 0.8; margin-bottom: 20px;">See my teaching style in action before you book!</p>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=UU6vW-V7l256mF2H0n7n_SzA" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/P606p20R6v8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
     <script>
         const trans = {
-            en: { bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.", wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", vidh: "Watch a Free Lesson", vidp: "See my teaching style in action before you book!", spech: "Premium Specializations" },
-            pt: { bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.", wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", vidh: "Assista uma Aula Grátis", vidp: "Veja meu estilo de ensino em ação antes de agendar!", spech: "Especialidades Premium" }
+            en: { bio: "Elevate your fluency with a <span class='bold'>Professional Teacher</span> holding a <span class='bold'>University Degree & Teaching Certification</span>. With 4+ years of international expertise, I build the bridge to your global career.", wa: "Book Free 20-Min Intro", pre: "Full Preply Profile", ai: "Ask my AI Assistant", vidh: "Watch a Free Lesson", vidp: "See my teaching style in action before you book!", spech: "Specialization" },
+            pt: { bio: "Eleve sua fluência com um <span class='bold'>Professor Profissional</span> com <span class='bold'>Diploma Universitário e Certificação</span>. Com mais de 4 anos de experiência, construo a ponte para sua carreira global.", wa: "Agendar Intro Grátis", pre: "Perfil no Preply", ai: "Falar com Assistente IA", vidh: "Assista uma Aula Grátis", vidp: "Veja meu estilo de ensino em ação antes de agendar!", spech: "Especialização" }
         };
 
         function setL(l, b) {
